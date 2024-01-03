@@ -1,21 +1,15 @@
-import os
-import shutil
-from typing import Any
+import uuid
 from django.contrib import admin
 from django import forms
 from django.contrib.postgres.fields import ArrayField
 from django.db import models
 from django.utils.html import format_html
 from collections.abc import Iterable
-from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as _
-from django.http import HttpRequest
-from django.conf import settings
 
 # Create your models here
 
 from django.contrib.auth.models import AbstractUser
-
 
 
 # Create your models here.
@@ -27,10 +21,11 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     email = models.CharField(max_length=200)
-    wish_list = models.ManyToManyField("Product", blank=True, null-True)
-    address_to = models.ForeignKey(
-        "ShippingAddress", on_delete=models.SET_NULL, null=True, blank=True
-    )
+    wish_list = models.ManyToManyField("Product", blank=True, null=True)
+    address_to = models.ForeignKey("ShippingAddress",
+                                   on_delete=models.SET_NULL,
+                                   null=True,
+                                   blank=True)
 
     def __str__(self):
         return self.email
@@ -46,11 +41,15 @@ class ShippingAddress(models.Model):
 
 
 class OrderedItem(models.Model):
-    item = models.ForeignKey(
-        "Product", on_delete=models.CASCADE, related_name="ordered_item", null=True
-    )
+    item = models.ForeignKey("Product",
+                             on_delete=models.CASCADE,
+                             related_name="ordered_item",
+                             null=True)
     quantity = models.IntegerField(default=1)
-    consumer = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
+    consumer = models.ForeignKey(User,
+                                 on_delete=models.CASCADE,
+                                 blank=True,
+                                 null=True)
 
     def ordered_item_total(self):
         return self.item.price * self.quantity
@@ -58,15 +57,18 @@ class OrderedItem(models.Model):
 
 class Cart(models.Model):
     items = models.ManyToManyField("OrderedItem", blank=True)
-    transaction_id = models.UUIDField(primary_key=True, unique=True, default=uuid.uuid4)
+    transaction_id = models.UUIDField(primary_key=True,
+                                      unique=True,
+                                      default=uuid.uuid4)
     completed = models.BooleanField(default=False)
     date_ordered = models.DateTimeField(auto_now_add=True)
     processing = models.BooleanField(default=False)
     consumer = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     notes = models.TextField(blank=True)
-    shipping_to = models.ForeignKey(
-        ShippingAddress, on_delete=models.SET_NULL, null=True, blank=True
-    )
+    shipping_to = models.ForeignKey(ShippingAddress,
+                                    on_delete=models.SET_NULL,
+                                    null=True,
+                                    blank=True)
 
     def cart_total(self):
         total = sum([price.ordered_item_total() for price in self.items.all()])
@@ -98,9 +100,9 @@ class Product(models.Model):
     ]
 
     name = models.CharField(max_length=200, unique=True)
-    category = models.ForeignKey(
-        "store.Category", verbose_name=_("category"), on_delete=models.CASCADE
-    )
+    category = models.ForeignKey("Category",
+                                 verbose_name=_("category"),
+                                 on_delete=models.CASCADE)
     # from pyuploadcare.dj.models import ImageGroupField
 
     image = models.ImageField(blank=True, null=True)
@@ -126,7 +128,7 @@ class Product(models.Model):
     ):
         self.name = self.name.title()
         super(Product, self).save(*args, **kwargs)
-       
+
     @admin.display(description="")
     def image_display(self):
         if not self.image:
@@ -157,24 +159,20 @@ class Category(models.Model):
 
     def save(
         self,
-        force_insert: bool = ...,
-        force_update: bool = ...,
-        using: str | None = ...,
-        update_fields: Iterable[str] | None = ...,
         *args,
         **kwargs,
     ) -> None:
         self.name = self.name.title()
         super().save(*args, **kwargs)
-        
+
     def __str__(self) -> str:
         return self.name
 
 
 class Comment(models.Model):
-    product = models.ForeignKey(
-        Product, related_name="comments", on_delete=models.CASCADE
-    )
+    product = models.ForeignKey(Product,
+                                related_name="comments",
+                                on_delete=models.CASCADE)
     reply = models.ForeignKey(
         "Comment",
         null=True,
@@ -182,9 +180,9 @@ class Comment(models.Model):
         related_name="replies",
         on_delete=models.CASCADE,
     )
-    user = models.ForeignKey(
-        "users.User", verbose_name=_("user"), on_delete=models.CASCADE
-    )
+    user = models.ForeignKey(User,
+                             verbose_name=_("user"),
+                             on_delete=models.CASCADE)
     content = models.TextField(max_length=200)
     timestamp = models.DateTimeField(auto_now_add=True)
 
