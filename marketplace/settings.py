@@ -16,7 +16,7 @@ from django.db.utils import OperationalError
 from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
 
@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "users.apps.UsersConfig",
-    "store.apps.StoreConfig",
+    "rest_framework",
+    "store",
 ]
 
 MIDDLEWARE = [
@@ -59,9 +59,7 @@ ROOT_URLCONF = "marketplace.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "templates"))
-        ],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -140,14 +138,12 @@ USE_TZ = True
 
 STATIC_URL = "/assets/"
 
-STATICFILES_DIRS = [
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "assets"))
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "assets")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 
-AUTH_USER_MODEL = "users.User"
+AUTH_USER_MODEL = "store.User"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
