@@ -1,0 +1,31 @@
+Step 1 - Installing the Components from the Ubuntu Repositories
+$ sudo apt update
+$ sudo apt full-urpgrade -y
+$ sudo apt install libpq-dev postgresql postgresql-contrib
+
+
+Step 2 - Creating a Database and Database User
+$ pg_lsclusters
+
+#format is pg_ctlcluster <version> <cluster> <action>
+$ sudo pg_ctlcluster 9.6 main start
+
+#restart PostgreSQL service
+$ sudo service postgresql restart
+
+$ sudo -u postgres psql
+postgres=# CREATE DATABASE myproject;
+
+NB: Remember to end all commands at an SQL prompt with a semicolon.
+
+postgres=# CREATE USER projectuser WITH PASSWORD 'password';
+postgres=# ALTER ROLE projectuser SET client_encoding TO 'utf-8';
+postgres=# ALTER ROLE projectuser SET default_transaction_isolation TO 'read committed';
+postgres=# ALTER ROLE projectuser SET timeszone TO 'UTC';
+
+postgres=# GRANT ALL PRIVILEGES ON DATABASE myproject TO projectuser;
+postgres=# \c EXAMPLE_DB postgres
+
+postgres=# GRANT ALL ON SCHEMA public TO EXAMPLE_USER;
+postgres=# \q
+
