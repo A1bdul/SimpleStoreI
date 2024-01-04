@@ -1,8 +1,9 @@
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
+from .models import Product
 # Create your views here.
 
 
@@ -50,4 +51,20 @@ class AdminView(APIView):
         if action == "wolmart_account_form":
             return render(request, "fragments/popup-account-form.html")
 
+        if action == "wolmart_quickview":
+            # item = get_object_or_404(Product, pk=request.data.get("product_id"))
+            return render(request, "fragments/quick-view.html", {
+                    "item": ""
+                })
+
+        if action == "wolmart_add_to_compare":
+            popup_template = render_to_string("fragments/compare-popup-template.html")
+            minicompare = render_to_string("fragments/mini-compare.html")
+            return Response({
+                    "url": "",
+                    "count": 1,
+                    "products": [request.data.get("id")],
+                    "popup_template": popup_template,
+                    "minicompare": minicompare
+                })
         return Response({"result": False})
