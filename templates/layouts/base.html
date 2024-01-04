@@ -5,8 +5,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
-    <link rel="profile" href="https://gmpg.org/xfn/11" />
-    <link rel="pingback" href="/xmlrpc.php" />
     <link rel="preload" href="{% static 'fonts/wolmart/wolmart.woff' %}" as="font" type="font/woff">
     <link rel="preload" href="{% static 'fonts/font-awesome/fa-solid-900.woff2' %}" as="font" type="font/woff2">
     <link rel="preload" href="{% static 'fonts/font-awesome/fa-brands-400.woff2' %}" as="font" type="font/woff2">
@@ -8599,27 +8597,14 @@
     <script type="text/template" id="tmpl-unavailable-variation-template">
         <p>Sorry, this product is unavailable. Please choose a different combination.</p>
 </script>
-    <script id="advanced-google-recaptcha-custom-js-extra">
-        var agrRecaptcha = {
-            "site_key": "6LdDB3AkAAAAAAUloiDdPu4o1lTg4g1MaSY81R0u"
-        };
-    </script>
     <script src="/wp-content/plugins/advanced-google-recaptcha/assets/js/captcha.min.js"
         id="advanced-google-recaptcha-custom-js"></script>
     <script src="https://www.google.com/recaptcha/api.js?hl=en_US&amp;onload=agrLoad&amp;render=explicit&amp;ver=1.0.15"
         id="advanced-google-recaptcha-api-js"></script>
-    <link rel="https://api.w.org/" href="/wp-json/" />
-    <link rel="alternate" type="application/json" href="/wp-json/wp/v2/pages/2" />
-    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
-    <meta name="generator" content="WordPress 6.4.1" />
-    <meta name="generator" content="WooCommerce 8.1.1" />
+     <meta name="generator" content="marketplace 1.0" />
     <link rel="canonical" href="/" />
     <link rel="shortlink" href="/" />
-    <link rel="alternate" type="application/json+oembed"
-        href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fd-themes.com%2Fwordpress%2Fwolmart%2Fdemo-1%2F" />
-    <link rel="alternate" type="text/xml+oembed"
-        href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fd-themes.com%2Fwordpress%2Fwolmart%2Fdemo-1%2F&#038;format=xml" />
-    <noscript>
+     <noscript>
         <style>
             .woocommerce-product-gallery {
                 opacity: 1 !important;
@@ -8670,7 +8655,7 @@
 <script src="{% static 'js/jquery/jquery.min.js' %}" id="jquery-core-js"></script>
 <script id="dokan-i18n-jed-js-extra">
     var dokan = {
-        "ajaxurl": "\/wp-admin\/admin-ajax.php",
+        "ajaxurl": "{% url 'store-api' %}",
         "nonce": "3128fe30c8",
         "ajax_loader": "\/wp-content\/plugins\/dokan-lite\/assets\/images\/ajax-loader.gif",
         "seller": {
@@ -8759,7 +8744,7 @@
 </script>
 <script id="jquery-yith-wcwl-js-extra">
     var yith_wcwl_l10n = {
-        "ajax_url": "\/wp-admin\/admin-ajax.php",
+        "ajax_url": "{% url 'store-api' %}",
         "redirect_to_cart": "no",
         "yith_wcwl_button_position": "after_add_to_cart",
         "multi_wishlist": "",
@@ -8812,8 +8797,8 @@
 </script>
 <script id="wc-add-to-cart-js-extra">
     var wc_add_to_cart_params = {
-        "ajax_url": "\/wordpress\/wolmart\/demo-1\/wp-admin\/admin-ajax.php",
-        "wc_ajax_url": "\/wordpress\/wolmart\/demo-1\/?wc-ajax=%%endpoint%%",
+        "ajax_url": " url 'store-api' %}",
+        "wc_ajax_url": "{% url 'index' %}?wc-ajax=%%endpoint%%",
         "i18n_view_cart": "View cart",
         "cart_url": "\/cart\/",
         "is_cart": "",
@@ -8822,8 +8807,8 @@
 </script>
 <script id="woocommerce-js-extra">
     var woocommerce_params = {
-        "ajax_url": "\/wordpress\/wolmart\/demo-1\/wp-admin\/admin-ajax.php",
-        "wc_ajax_url": "\/wordpress\/wolmart\/demo-1\/?wc-ajax=%%endpoint%%"
+        "ajax_url": " url 'store-api' %}",
+        "wc_ajax_url": "{% url 'index' %}?wc-ajax=%%endpoint%%"
     };
 </script>
 <script src="{% static 'js/plugins/imagesloaded.min.js'%}" id="imagesloaded-js"></script>
@@ -8859,14 +8844,14 @@
 <script id="wp-util-js-extra">
     var _wpUtilSettings = {
         "ajax": {
-            "url": "\/wordpress\/wolmart\/demo-1\/wp-admin\/admin-ajax.php"
+            "url": " url 'store-api' %}"
         }
     };
 </script>
 <script src="{% static 'js/plugins/wp-util.min.js' %}" id="wp-util-js"></script>
 <script id="wc-add-to-cart-variation-js-extra">
     var wc_add_to_cart_variation_params = {
-        "wc_ajax_url": "\/wordpress\/wolmart\/demo-1\/?wc-ajax=%%endpoint%%",
+        "wc_ajax_url": "{% url 'index' %}?wc-ajax=%%endpoint%%",
         "i18n_no_matching_variations_text": "Sorry, no products matched your selection. Please choose a different combination.",
         "i18n_make_a_selection_text": "Please select some product options before adding this product to your cart.",
         "i18n_unavailable_text": "Sorry, this product is unavailable. Please choose a different combination."
@@ -8874,7 +8859,7 @@
 </script>
 <script id="wolmart-theme-js-extra">
     var wolmart_vars = {
-        "ajax_url": "\/wp-admin\/admin-ajax.php",
+        "ajax_url": "{% url 'store-api' %}",
         "nonce": "1b63332844",
         "lazyload": "1",
         "skeleton_screen": "",
@@ -8933,8 +8918,8 @@
 </script>
 <script id="wc-cart-fragments-js-extra">
     var wc_cart_fragments_params = {
-        "ajax_url": "\/wordpress\/wolmart\/demo-1\/wp-admin\/admin-ajax.php",
-        "wc_ajax_url": "\/wordpress\/wolmart\/demo-1\/?wc-ajax=%%endpoint%%",
+        "ajax_url": " url 'store-api' %}",
+        "wc_ajax_url": "{% url 'index' %}?wc-ajax=%%endpoint%%",
         "cart_hash_key": "wc_cart_hash_8bc43a4a6ad8a68698c85b4e07d334c8",
         "fragment_name": "wc_fragments_8bc43a4a6ad8a68698c85b4e07d334c8",
         "request_timeout": "5000"
