@@ -13,7 +13,6 @@
     <link rel="preload" as="image" href="/wp-content/uploads/sites/4/2021/07/slide1.jpg" />
     <link rel="preload" as="image" href="/wp-content/uploads/sites/4/2021/04/banner-1.jpg" />
     <link rel="preload" as="image" href="/wp-content/uploads/sites/4/2021/04/banner-2.jpg" />
-
     <style id="wolmart-critical-css">
         :root {
             --e-a-color-white: #fff;
@@ -275,8 +274,8 @@
             font-display: block;
             src: url({% static 'fonts/font-awesome/fa-brands-400.eot' %});
             src: url({% static 'fonts/font-awesome/fa-brands-400.eot' %}) format("embedded-opentype"),
-            url(./webfonts/fa-brands-400.woff2) format("woff2"),
-            url(./webfonts/fa-brands-400.woff) format("woff"),
+            url({% static 'fonts/font-awesome/fa-brands-400.woff2' %}) format("woff2"),
+            url({% static 'fonts/font-awesome/fa-brands-400.woff' %}) format("woff"),
             url({% static 'fonts/font-awesome/fa-brands-400.ttf' %}) format("truetype"),
             url({% static 'fonts/font-awesome/fa-brands-400.svg' %}) format("svg")
         }
@@ -307,8 +306,8 @@
             font-style: normal;
             font-weight: 900;
             font-display: block;
-            src: url(./webfonts/fa-solid-900.eot);
-            src: url(./webfonts/fa-solid-900.eot?#iefix) format("embedded-opentype"), url(./webfonts/fa-solid-900.woff2) format("woff2"), url(./webfonts/fa-solid-900.woff) format("woff"), url(./webfonts/fa-solid-900.ttf) format("truetype"), url(./webfonts/fa-solid-900.svg#fontawesome) format("svg")
+            src: url({% static 'fonts/font-awsome/fa-solid-900.eot' %});
+            src: url({% static 'fonts/font-awsome/fa-solid-900.eot?#iefix' %}) format("embedded-opentype"), url({% static 'fonts/font-awsome/fa-solid-900.woff2' %}) format("woff2"), url({% static 'fonts/font-awsome/fa-solid-900.woff' %}) format("woff"), url({% static 'fonts/font-awsome/fa-solid-900.ttf' %}) format("truetype"), url({% static 'fonts/font-awsome/fa-solid-900.svg#fontawesome' %}) format("svg")
         }
 
         .fas {
@@ -8174,7 +8173,7 @@
             border: 0
         }
     </style>
-    <meta name="application-name" content="Wolmart - Multi-Vendor & Marketplace WooCommerce WordPress Theme">
+    <meta name="application-name" content="SimpleStore - Multi-Vendor & Marketplace ">
     <meta name="author" content="Abdul's">
     <meta name="description"
         content="Multi-Vendor and Marketplace WooCommerce WordPress Theme with Top Performance Score. Work with popular page builders such as Elementor and WPBakery Page Builder.">
@@ -8185,8 +8184,8 @@
     <title>{% block Title %}{% endblock %}</title>
     <meta name="robots" content="max-image-preview:large" />
     <link rel="dns-prefetch" href="//www.google.com" />
-    <link rel="alternate" type="application/rss+xml" title="Demo 1 &raquo; Feed" href="/feed/" />
-    <link rel="alternate" type="application/rss+xml" title="Demo 1 &raquo; Comments Feed" href="/comments/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="SimpleStore &raquo; Feed" href="/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="SimpleStore &raquo; Comments Feed" href="/comments/feed/" />
     <style id="classic-theme-styles-inline-css">
         /*! This file is auto-generated */
         .wp-block-button__link {
@@ -8584,6 +8583,7 @@
             visibility: visible;
         }
     </style>
+    <link rel="stylesheet" id="select2-css" href="{% static 'css/plugins/select2.css' %}" media="all" />
     <link rel="stylesheet" id="swiper-css" href="{% static 'css/plugins/swiper.min.css' %}">
     <link rel="stylesheet" id="wolmart-demo-plugin-css" href="{% static 'css/plugins/style.css' %}" media="all" />
     {% comment %}
@@ -8942,6 +8942,8 @@
         'text direction\u0004ltr': ['ltr']
     });
 </script>
+{% block additional_scripts %}
+{% endblock %}
 <script src="{% static 'js/wolmart_site.js' %}" id="wolmart-merged-js"></script>
 </body>
 
