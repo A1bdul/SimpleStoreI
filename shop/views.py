@@ -8,41 +8,47 @@ from store.serializer import ProductSerializer
 from rest_framework.response import Response
 from store.models import Product
 import time
+
 # Create your views here.
+
 
 def index(request):
     return render(request, "index.html")
 
-def cart_view(request):
-    return render(request, 'cart.html')
 
-@api_view(['GET', 'POST'])
+def cart_view(request):
+    return render(request, "cart.html")
+
+
+@api_view(["GET", "POST"])
 def shop_view(request, page_number=None):
     if request.POST:
         print(request.data)
         time.sleep(3)
-        return render(request, 'layouts/page.html')
+        return render(request, "layouts/page.html")
     if request.query_params("orderby"):
         time.sleep(10000)
-    return render(request, 'shop.html')
+    return render(request, "shop.html")
 
 
 class ProductPagination(PageNumberPagination):
     page_size = 12  # Default to 12
-    page_size_query_param = 'page_size'  # Allow the client to change the page size
+    page_size_query_param = "page_size"  # Allow the client to change the page size
     max_page_size = 36  # Maximum limit allowed when requested by client
 
     def get_paginated_response(self, data):
-        return Response({
-            'next': self.get_next_link(),
-            'previous': self.get_previous_link(),
-            'count': self.page.paginator.count,
-            'total_pages': self.page.paginator.num_pages,
-            'current_page': self.page.number,
-            'start_index': self.page.start_index(),
-            'end_index': self.page.end_index(),
-            'results': data
-        })
+        return Response(
+            {
+                "next": self.get_next_link(),
+                "previous": self.get_previous_link(),
+                "count": self.page.paginator.count,
+                "total_pages": self.page.paginator.num_pages,
+                "current_page": self.page.number,
+                "start_index": self.page.start_index(),
+                "end_index": self.page.end_index(),
+                "results": data,
+            }
+        )
 
 
 class ShopView(ListAPIView):
@@ -53,7 +59,7 @@ class ShopView(ListAPIView):
     def post(self, request):
         print(request.data)
         time.sleep(3)
-        return render(request, 'layouts/page.html')
+        return render(request, "layouts/page.html")
 
     def get(self, request, category=None, *args, **kwargs):
         time.sleep(2)
@@ -66,8 +72,8 @@ class ShopView(ListAPIView):
             min_price = request.query_params.get("min_price", None)
             max_price = request.query_params.get("max_price", None)
             filter_size = request.query_params.get("filter_size")
-            order_by = request.query_params.get('orderby')
+            order_by = request.query_params.get("orderby")
             self.queryset = self.queryset.order_by_popularity()
         response = super().get(request, *args, **kwargs)
-        response.data['showtype'] = showtype
-        return render(request, 'shop.html', response.data)
+        response.data["showtype"] = showtype
+        return render(request, "shop.html", response.data)

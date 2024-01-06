@@ -11,34 +11,18 @@ from urllib.parse import urlencode, parse_qs
 
 register = template.Library()
 
-def check_exact_word(input_string, word_to_check):
-    pattern = r'\b' + re.escape(word_to_check) + r'\b'  # Construct the regular expression pattern
-
-    match = re.search(pattern, input_string)  # Use re.search to find the exact word
-
-    if match:
-        return True  # If there's a match, the exact word is present in the input string
-    else:
-        return False  # If there's no match, the exact word is not present in the input string
-
-def remove_word_from_string(input_string, word_to_remove):
-    # Construct the regular expression pattern to match the exact word with word boundaries
-    pattern = r'\b' + re.escape(word_to_remove) + r'\b'
-
-    # Use re.sub to remove the matched word while preserving other occurrences
-    result = re.sub(pattern, '', input_string)
-
-    return result
 
 @register.simple_tag
 def update_url(request, param_name=None, param_value=None, *args, **kwargs):
     """
-        using the template tag to update the query parameters in the url.
+    using the template tag to update the query parameters in the url.
 
-        {% update_url request 'filter_size' 'extra-large' %}
+    {% update_url request 'filter_size' 'extra-large' %}
     """
     updated_params = request.GET.copy()
-    current_values = updated_params.get(param_name, None)  # Get the current value or an empty list
+    current_values = updated_params.get(
+        param_name, None
+    )  # Get the current value or an empty list
 
     if param_name and param_value:
         if current_values:
@@ -57,14 +41,14 @@ def update_url(request, param_name=None, param_value=None, *args, **kwargs):
     for key in kwargs:
         updated_params[key] = kwargs[key]
     # Convert the updated query parameters back to a URL string
-    updated_url = '{}?{}'.format(request.path, urlencode(updated_params, doseq=True))
-
+    updated_url = "{}?{}".format(request.path, urlencode(updated_params, doseq=True))
 
     return updated_url
 
+
 @register.simple_tag
 def base64_encode(image_url):
-    encoded_image = base64.b64encode(requests.get(image_url).content).decode('utf-8')
+    encoded_image = base64.b64encode(requests.get(image_url).content).decode("utf-8")
     return f"data:image/jpeg;base4,{encoded_image}"
 
     # try:

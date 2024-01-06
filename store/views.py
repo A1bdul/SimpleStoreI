@@ -7,6 +7,7 @@ from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 from .models import Product
 import urllib.parse
+
 # Create your views here.
 
 
@@ -20,7 +21,7 @@ class AdminView(APIView):
         ## if not action: print("\n\naction:", request.data)
         ajax_action = request.query_params.get("wc-ajax")
         if ajax_action:
-            print(str(request.data) + '\n\n', ajax_action)
+            print(str(request.data) + "\n\n", ajax_action)
             shopping_cart_fragment = render_to_string(
                 "fragments/widget_shopping_cart_content.html"
             )
@@ -42,23 +43,23 @@ class AdminView(APIView):
             footer_nav_2 = render_to_string("fragments/footer-nav-2.html")
             footer_nav_3 = render_to_string("fragments/footer-nav-3.html")
 
-            return Response({
+            return Response(
+                {
                     "top-navigation": top_navigation,
                     "categories": categories_menu,
                     "main-menu": main_menu,
                     "footer-nav-1": footer_nav_1,
                     "footer-nav-2": footer_nav_2,
-                    "footer-nav-3": footer_nav_3
-                })
+                    "footer-nav-3": footer_nav_3,
+                }
+            )
 
         if action == "wolmart_account_form":
             return render(request, "fragments/popup-account-form.html")
 
         if action == "wolmart_quickview":
             # item = get_object_or_404(Product, pk=request.data.get("product_id"))
-            return render(request, "fragments/quick-view.html", {
-                    "item": ""
-                })
+            return render(request, "fragments/quick-view.html", {"item": ""})
         if action == "wolmart_clean_compare":
             response = Response()
             response.delete_cookie("wolmart_compare_list_4")
@@ -66,44 +67,58 @@ class AdminView(APIView):
             return response
         if action == "wolmart_remove_from_compare":
             time.sleep(2)
-            cookie = request.COOKIES.get("wolmart_compare_list_4", json.dumps([], separators=(',',':')))
+            cookie = request.COOKIES.get(
+                "wolmart_compare_list_4", json.dumps([], separators=(",", ":"))
+            )
             compare_list = json.loads(urllib.parse.unquote(cookie))
             compare_list.remove(int(request.data.get("id")))
             products = Product.objects.filter(id__in=compare_list)
-            popup_template = render_to_string("fragments/compare-popup-template.html", {
-                    'compare_list': products
-                })
+            popup_template = render_to_string(
+                "fragments/compare-popup-template.html", {"compare_list": products}
+            )
             minicompare = render_to_string("fragments/mini-compare.html")
 
-            response = Response({
+            response = Response(
+                {
                     "url": "",
                     "count": 1,
                     "products": compare_list,
                     "popup_template": popup_template,
-                    "minicompare": minicompare
-                })
-            response.set_cookie("wolmart_compare_list_4", urllib.parse.quote(json.dumps(compare_list, separators=(',',':'))))
+                    "minicompare": minicompare,
+                }
+            )
+            response.set_cookie(
+                "wolmart_compare_list_4",
+                urllib.parse.quote(json.dumps(compare_list, separators=(",", ":"))),
+            )
             return response
 
         if action == "wolmart_add_to_compare":
             time.sleep(2)
-            cookie = request.COOKIES.get("wolmart_compare_list_4", json.dumps([], separators=(',',':')))
+            cookie = request.COOKIES.get(
+                "wolmart_compare_list_4", json.dumps([], separators=(",", ":"))
+            )
             compare_list = json.loads(urllib.parse.unquote(cookie))
             compare_list.append(int(request.data.get("id")))
             products = Product.objects.filter(id__in=compare_list)
-            popup_template = render_to_string("fragments/compare-popup-template.html", {
-                    'compare_list': products
-                })
+            popup_template = render_to_string(
+                "fragments/compare-popup-template.html", {"compare_list": products}
+            )
             minicompare = render_to_string("fragments/mini-compare.html")
 
-            response = Response({
+            response = Response(
+                {
                     "url": "",
                     "count": 1,
                     "products": compare_list,
                     "popup_template": popup_template,
-                    "minicompare": minicompare
-                })
-            response.set_cookie("wolmart_compare_list_4", urllib.parse.quote(json.dumps(compare_list, separators=(',',':'))))
+                    "minicompare": minicompare,
+                }
+            )
+            response.set_cookie(
+                "wolmart_compare_list_4",
+                urllib.parse.quote(json.dumps(compare_list, separators=(",", ":"))),
+            )
             return response
 
         print("actions", action)
