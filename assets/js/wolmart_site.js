@@ -19267,6 +19267,7 @@ window.Wolmart ||
 							function (a) {
 								a.preventDefault(),
 									a.stopPropagation(),
+									console.log("testign!!!"),
 									'or' == t(this).closest('.wolmart-filter').attr('data-filter-query') ? t(this).closest('li').toggleClass('chosen') : t(this).closest('li').toggleClass('chosen').siblings().removeClass('chosen');
 								var e = t(this).closest('.wolmart-filters').find('.btn-filter'),
 									o = e.attr('href'),

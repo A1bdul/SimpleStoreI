@@ -10,6 +10,64 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here
 
 from django.contrib.auth.models import AbstractUser
+from django.db.models import Q, F, ExpressionWrapper, DecimalField, Case, When, Count
+
+class ProductQuerySet(models.QuerySet):
+    def filter_by_review(self, min_rating=None, order_by_rating_count=False):
+            queryset = self.annotate(avg_rating=Avg('reviews__rating')).annotate(review_count=Count('reviews'))
+
+            if min_rating is not None:
+                queryset = queryset.filter(avg_rating__gte=min_rating)
+
+            if order_by_rating_count:
+                queryset = queryset.order_by('-avg_rating', 'review_count')
+
+            queryset = queryset.filter(available__gte=0)
+
+            return queryset
+
+    def filter_by_price(self, min_price=None, max_price=None, order_by_calculated_price='asc'):
+        queryset = self.annotate(calculated_price=ExpressionWrapper(
+            Case(
+                When(discount__gt=0, then=F('original_price') - (F('original_price') * (F('discount') / 100))),
+                default=F('original_price'),
+                output_field=DecimalField()
+            ), output_field=DecimalField())
+        )
+
+        if min_price is not None:
+            queryset = queryset.filter(calculated_price__gte=min_price)
+
+        if max_price is not None:
+            queryset = queryset.filter(calculated_price__lte=max_price)
+
+        if order_by_calculated_price == 'asc':
+            queryset = queryset.order_by('calculated_price')
+        elif order_by_calculated_price == 'desc':
+            queryset = queryset.order_by('-calculated_price')
+
+        queryset = queryset.filter(available__gt=0)
+
+        return queryset
+
+
+    def order_by_popularity(self):
+        queryset = self.annotate(order_count=Count('ordered_items')).annotate(wishlist_count=Count('wishlisted_by'))
+
+        queryset = queryset.order_by('-order_count', '-wishlist_count')
+        queryset = queryset.filter(available__gte=0)
+
+        return queryset
+
+class ProductManager(models.Manager):
+    def get_queryset(self):
+        return ProductQuerySet(self.model, using=self._db)
+
+    def filter_by_price(self, min_price, max_price):
+        return self.get_queryset().filter_by_price(min_price, max_price)
+
+    def order_by_popularity(self):
+        return self.get_queryset().order_by_popularity()
 
 
 # Create your models here.
@@ -21,7 +79,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     email = models.CharField(max_length=200)
-    wish_list = models.ManyToManyField("Product", blank=True, null=True)
+    wish_list = models.ManyToManyField("Product", related_name='wishlisted_by', blank=True, null=True)
     address_to = models.ForeignKey("ShippingAddress",
                                    on_delete=models.SET_NULL,
                                    null=True,
@@ -43,13 +101,14 @@ class ShippingAddress(models.Model):
 class OrderedItem(models.Model):
     item = models.ForeignKey("Product",
                              on_delete=models.CASCADE,
-                             related_name="ordered_item",
+                             related_name="ordered_items",
                              null=True)
     quantity = models.IntegerField(default=1)
     consumer = models.ForeignKey(User,
                                  on_delete=models.CASCADE,
                                  blank=True,
                                  null=True)
+    ordered_at = models.DateTimeField(auto_now_add=True)
 
     def ordered_item_total(self):
         return self.item.price * self.quantity
@@ -116,7 +175,9 @@ class Product(models.Model):
         blank=True,
     )
     discount = models.FloatField(blank=True, null=True)
+    discount_duration = models.DateTimeField(blank=True, null=True)
 
+    objects = ProductManager()
     def save(
         self,
         force_insert=False,
@@ -128,6 +189,23 @@ class Product(models.Model):
     ):
         self.name = self.name.title()
         super(Product, self).save(*args, **kwargs)
+
+    def clean(self):
+        if self.discount and not self.discount_duration:
+            self.discount_duration = timezone.now() + timezone.timedelta(hours=24)
+
+        if not self.discount and self.discount_duration:
+            raise ValidationError("Cannot set discount duration without providing a discount")
+
+        if self.discount_duration:
+            if self.discount_duration < timezone.now():
+                raise ValidationError("Discount datetime cannot be in the past")
+
+            time_difference = self.discount_duration - timezone.now()
+            if time_difference.seconds < 3600:  # Check if the duration is at least an hour
+                raise ValidationError("Discount duration should be at least an hour")
+
+        super(Product, self).clean()
 
     @admin.display(description="")
     def image_display(self):
@@ -169,12 +247,12 @@ class Category(models.Model):
         return self.name
 
 
-class Comment(models.Model):
+class Review(models.Model):
     product = models.ForeignKey(Product,
                                 related_name="comments",
                                 on_delete=models.CASCADE)
     reply = models.ForeignKey(
-        "Comment",
+        "Review",
         null=True,
         blank=True,
         related_name="replies",
@@ -185,6 +263,7 @@ class Comment(models.Model):
                              on_delete=models.CASCADE)
     content = models.TextField(max_length=200)
     timestamp = models.DateTimeField(auto_now_add=True)
+    rating = models.DecimalField(max_digits=1, decimal_places=1)
 
     def __str__(self):
         return "{} on {}".format(self.name, self.product)

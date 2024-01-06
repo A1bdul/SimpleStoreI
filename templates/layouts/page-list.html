@@ -1,0 +1,393 @@
+<div class="breadcrumb-container container"><ul class="breadcrumb"><li><a href="https://d-themes.com/wordpress/wolmart/demo-1">Home</a></li><li class="delimiter">></li><li>Shop</li></ul></div><div class="container"><div class="main-content-wrap row gutter-lg">
+<aside class="sidebar sidebar-fixed sidebar-side left-sidebar shop-sidebar" id="shop-sidebar">
+<div class="sidebar-overlay"></div>
+<a class="sidebar-close" href="#"><i class="close-icon"></i></a>
+<div class="sidebar-content">
+<div class="sticky-sidebar">
+<div class="filter-actions">
+<label>Filter :</label>
+<a href="{% url 'shop' %}" class="filter-clean">Clean All</a>
+</div>
+<nav id="woocommerce_product_categories-2" class="widget woocommerce widget_product_categories widget-collapsible"><h3 class="widget-title"><span class="wt-area">All Categories</span></h3><ul class="product-categories"><li class="cat-item cat-item-73"><a href="{% url 'category' 'clothing' %}">Clothing</a></li>
+<li class="cat-item cat-item-27"><a href="{% url 'category' 'computers' %}">Computers</a></li>
+<li class="cat-item cat-item-70"><a href="{% url 'category' 'electronics' %}">Electronics</a></li>
+<li class="cat-item cat-item-22"><a href="{% url 'category' 'fashion' %}">Fashion</a></li>
+<li class="cat-item cat-item-23"><a href="{% url 'category' 'furniture' %}">Furniture</a></li>
+<li class="cat-item cat-item-26"><a href="{% url 'category' 'games' %}">Games</a></li>
+<li class="cat-item cat-item-71"><a href="{% url 'category' 'kitchen' %}">Kitchen</a></li>
+<li class="cat-item cat-item-24"><a href="{% url 'category' 'shoes' %}">Shoes</a></li>
+<li class="cat-item cat-item-25"><a href="{% url 'category' 'sports' %}">Sports</a></li>
+</ul></nav><nav id="wolmart-price-filter-2" class="widget widget-price-filter wolmart-price-filter widget-collapsible"><h3 class="widget-title"><span class="wt-area">Price</span></h3><div class="wolmart-price-range-wrapper"><ul class="wolmart-product-prices"><li><a href="{{ request.path }}?min_price=10&max_price=50"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>10.00</bdi></span> - <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span></a></li><li><a href="{{ request.path }}?min_price=50&max_price=100"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>50.00</bdi></span> - <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span></a></li><li><a href="{{ request.path }}?min_price=100&max_price=500"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>100.00</bdi></span> - <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>500.00</bdi></span></a></li></ul><form class="wolmart-price-range" action="{% url 'shop' %}"><input type="number" name="min_price" class="min_price" placeholder="&#36;min" value><span class="delimiter"></span><input type="number" name="max_price" class="max_price" placeholder="&#36;max" value><button type="submit" class="button filter_price">Go</button></form></div></nav><nav id="woocommerce_layered_nav-2" class="widget woocommerce widget_layered_nav woocommerce-widget-layered-nav widget-collapsible"><h3 class="widget-title"><span class="wt-area">Size</span></h3><ul class="woocommerce-widget-layered-nav-list"><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_size=extra-large&#038;query_type_size=or">Extra Large</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_size=large&#038;query_type_size=or">Large</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_size=medium&#038;query_type_size=or">Medium</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_size=small&#038;query_type_size=or">Small</a> </li></ul></nav><nav id="wolmart_woo_product_brands-2" class="widget widget widget_product_brands woocommerce widget_layered_nav woocommerce-widget-layered-nav widget-collapsible"><h3 class="widget-title"><span class="wt-area">Brand</span></h3><ul class="woocommerce-widget-layered-nav-list"><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a data-title="Elegant Auto Group" href="{{ request.path }}?product_brand=elegant-auto-group">Elegant Auto Group</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a data-title="Green Grass" href="{{ request.path }}?product_brand=green-grass">Green Grass</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a data-title="Node Js" href="{{ request.path }}?product_brand=node-js">Node Js</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a data-title="NS8" href="{{ request.path }}?product_brand=ns8">NS8</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a data-title="RED" href="{{ request.path }}?product_brand=red">RED</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a data-title="Skysuite Tech" href="{{ request.path }}?product_brand=skysuite-tech">Skysuite Tech</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a data-title="Sterling" href="{{ request.path }}?product_brand=sterling">Sterling</a> </li></ul></nav><nav id="woocommerce_layered_nav-3" class="widget woocommerce widget_layered_nav woocommerce-widget-layered-nav widget-collapsible"><h3 class="widget-title"><span class="wt-area">Color</span></h3><ul class="woocommerce-widget-layered-nav-list"><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=black&#038;query_type_color=or">Black</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=blue&#038;query_type_color=or">Blue</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=brown&#038;query_type_color=or">Brown</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=green&#038;query_type_color=or">Green</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=grey&#038;query_type_color=or">Grey</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=orange&#038;query_type_color=or">Orange</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=pink&#038;query_type_color=or">Pink</a> </li><li class="woocommerce-widget-layered-nav-list__item wc-layered-nav-term "><a rel="nofollow" href="{{ request.path }}?filter_color=yellow&#038;query_type_color=or">Yellow</a> </li></ul></nav> </div>
+</div>
+</aside>
+<div class="main-content"><div class="inner-top-block"><style id="elementor-post_849_css">.elementor-element-d7267b5 .banner{background-color:#FFC74E;color:#fff;min-height:300px;}.elementor-element-d7267b5 .banner-content{text-align:left;}.elementor-element-d7267b5 .elementor-repeater-item-9e2165f{color:#333333;font-size:2.8em;letter-spacing:-0.56px;margin:0px 0px 0px 0px;}.elementor-element-d7267b5 .elementor-repeater-item-6fd0a76{font-size:4em;font-weight:700;text-transform:uppercase;letter-spacing:-0.4px;}.elementor-element-d7267b5 .elementor-repeater-item-b829ca9 i{font-size:17px;}.elementor-element-d7267b5 .elementor-repeater-item-b829ca9{letter-spacing:0px;padding:17px 27px 17px 27px;}.elementor-element-d7267b5 .elementor-repeater-item-7fe301e{letter-spacing:0px;}.elementor-element-d7267b5 .banner-img img{object-position:45%;}.elementor-element-d7267b5 .banner .banner-content{left:5.2%;top:50%;margin:-3px 0px 0px 0px;}@media(max-width:991px){.elementor-element-d7267b5 .elementor-repeater-item-9e2165f{font-size:2.4rem;}.elementor-element-d7267b5 .elementor-repeater-item-6fd0a76{font-size:3.6em;}.elementor-element-d7267b5 .banner{min-height:250px;}.elementor-element-d7267b5 .banner .banner-content{margin:0px 0px 0px 0px;}}@media(max-width:767px){.elementor-element-d7267b5 .elementor-repeater-item-9e2165f{font-size:1.6em;letter-spacing:0.025em;margin:0px 0px 5px 0px;}.elementor-element-d7267b5 .elementor-repeater-item-6fd0a76{font-size:2.6em;margin:0px 0px 20px 0px;}.elementor-element-d7267b5 .elementor-repeater-item-b829ca9{font-size:10px;letter-spacing:0.025em;}.elementor-element-d7267b5 .elementor-repeater-item-7fe301e{font-size:10px;letter-spacing:0.025em;}.elementor-849 .elementor-element.elementor-element-d7267b5, .elementor-element-d7267b5 .banner, .elementor-element-d7267b5 .banner img{max-height:172px;overflow:hidden;}.elementor-element-d7267b5 .banner{min-height:172px;}.elementor-element-d7267b5 .banner .banner-content{margin:3px 0px 0px 0px;}}</style><div class="wolmart-block elementor elementor-849" data-block-id="849" data-elementor-id="849" data-elementor-type="wolmart-block">		<div data-elementor-type="wp-post" data-elementor-id="849" class="elementor elementor-849">
+									<div class=" elementor-section elementor-top-section elementor-element elementor-element-e0a0779 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="e0a0779" data-element_type="section">
+										<div class="elementor-container elementor-column-gap-no" >
+										<div class=" elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-998f774" data-id="998f774" data-element_type="column">
+
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-d7267b5 shop-top-banner mb-4 mb-md-6 elementor-widget elementor-widget-wolmart_widget_banner" data-id="d7267b5" data-element_type="widget" data-widget_type="wolmart_widget_banner.default">
+				<div class="elementor-widget-container">
+			<div class="banner banner-fixed">	<figure class="banner-img">
+		<img width="1240" height="300" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/04/category-banner-1.jpg" class="attachment-full size-full" alt="Category Banner" style="background-color:#FFC74E" srcset="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/04/category-banner-1.jpg" decoding="async" />	</figure>
+	<div class="banner-content t-m"><h3 class="banner-item elementor-repeater-item-9e2165f item-block text">Accessories Collection</h3><h2 class="banner-item elementor-repeater-item-6fd0a76 item-block text">Smart Watches</h2><a class="banner-item elementor-repeater-item-b829ca9 d-none d-md-inline-block item-inline  btn btn-rounded btn-dark btn-icon-right" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/" >Discover now<i class="w-icon-long-arrow-right"></i></a><a class="banner-item elementor-repeater-item-7fe301e d-md-none item-inline  btn btn-link btn-underline  btn-dark" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/" >Discover now</a></div></div>		</div>
+				</div>
+					</div>
+
+		</div>
+															</div>
+							</div>
+							</div>
+		</div></div>
+<header class="woocommerce-products-header">
+
+	</header>
+
+<div class="woocommerce-notices-wrapper"></div><div class="sticky-toolbox sticky-content fix-top toolbox toolbox-top">
+	<div class="toolbox-left">
+					<a href="#" class="toolbox-item toolbox-toggle left-sidebar-toggle d-lg-none btn btn-sm btn-outline btn-primary btn-icon-left"><i class="w-icon-category"></i><span class="d-none d-sm-block">Filters</span></a>
+
+		<form class="woocommerce-ordering toolbox-item toolbox-sort select-box" method="get">
+						<label>Sort By :</label>
+						<select name="orderby" class="orderby form-control" aria-label="Shop order">
+									<option value="menu_order"  selected='selected'>Default sorting</option>
+									<option value="popularity" >Sort by popularity</option>
+									<option value="rating" >Sort by average rating</option>
+									<option value="date" >Sort by latest</option>
+									<option value="price" >Sort by price: low to high</option>
+									<option value="price-desc" >Sort by price: high to low</option>
+							</select>
+			<input type="hidden" name="paged" value="1" />
+			<input type="hidden" name="showtype" value="list" /><input type="hidden" name="only_posts" value="1" />		</form>
+	</div>
+
+	<div class="toolbox-right">
+				<div class="toolbox-item toolbox-show-count select-box">
+			<select name="count" class="count form-control">
+				<option value="9" >Show 9</option><option value="12"  selected='selected'>Show 12</option><option value="24" >Show 24</option><option value="36" >Show 36</option>			</select>
+			<input type="hidden" name="showtype" value="list" /><input type="hidden" name="only_posts" value="1" />		</div>
+				<div class="toolbox-item toolbox-show-type">
+			<a href="https://d-themes.com/wordpress/wolmart/demo-1/shop/?only_posts=1&#038;showtype=grid" class="w-icon-grid btn-showtype"></a>
+			<a href="https://d-themes.com/wordpress/wolmart/demo-1/shop/?only_posts=1&#038;showtype=list" class="w-icon-list btn-showtype active"></a>
+		</div>
+			</div>
+</div>
+<div class="product-archive"><ul class="products list-type-products  row cols-sm-1 cols-2" data-col-list=" row cols-sm-1 cols-2" data-col-grid=" row cols-lg-3 cols-md-3 cols-sm-2 cols-2" data-load="{&quot;props&quot;:&quot;&quot;,&quot;args&quot;:{&quot;shop&quot;:true},&quot;max&quot;:3}">
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-221 status-publish first instock product_cat-computers has-post-thumbnail sale shipping-taxable purchasable product-type-simple" data-product-id="221">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/apple-super-notecom/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Apple-Super-Notecom-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" fetchpriority="high" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Apple-Super-Notecom-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /></a><div class="product-label-group"><label class="product-label label-sale">4% off</label></div><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="221" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/apple-super-notecom/">Apple Super Notecom</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/apple-super-notecom/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>243.30</bdi></span></ins> <del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>253.50</bdi></span></del></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=221" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="221" data-product_sku="MS46891372" aria-label="Add &ldquo;Apple Super Notecom&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-221 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="221"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:221,&quot;parent_product_id&quot;:221,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=221" rel="nofollow" data-product-id="221" data-product-type="simple" data-original-product-id="221" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="221"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-233 status-publish instock product_cat-kitchen has-post-thumbnail shipping-taxable purchasable product-type-simple" data-product-id="233">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/automatic-crusher/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/automatic-crusher-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/automatic-crusher-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="233" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/automatic-crusher/">Automatic Crusher</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/automatic-crusher/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>220.25</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=233" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="233" data-product_sku="MS46891362" aria-label="Add &ldquo;Automatic Crusher&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-233 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="233"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:233,&quot;parent_product_id&quot;:233,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=233" rel="nofollow" data-product-id="233" data-product-type="simple" data-original-product-id="233" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="233"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-214 status-publish instock product_cat-clothing product_cat-fashion has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple" data-product-id="214">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/best-travel-bag/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Best-Travel-Bag-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Best-Travel-Bag-3-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-label-group"><label class="product-label label-featured">Hot</label><label class="product-label label-sale">11% off</label></div><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="214" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/best-travel-bag/">Best Travel Bag</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 0 out of 5"><span style="width:0%">Rated <strong class="rating">0</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/best-travel-bag/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(0 reviews)</a></div>
+	<span class="price"><ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>25.68</bdi></span></ins> <del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>28.99</bdi></span></del></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=214" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="214" data-product_sku="MS46891379" aria-label="Add &ldquo;Best Travel Bag&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-214 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="214"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:214,&quot;parent_product_id&quot;:214,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=214" rel="nofollow" data-product-id="214" data-product-type="simple" data-original-product-id="214" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="214"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-212 status-publish last instock product_cat-shoes product_cat-sports has-post-thumbnail sale featured shipping-taxable purchasable product-type-simple" data-product-id="212">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/black-winter-skating/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/black-winter-skating-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/black-winter-skating-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-label-group"><label class="product-label label-featured">Hot</label><label class="product-label label-sale">11% off</label></div><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="212" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/black-winter-skating/">Black Winter Skating</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 4.00 out of 5"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/black-winter-skating/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>40.86</bdi></span></ins> <del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>45.89</bdi></span></del></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=212" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="212" data-product_sku="MS46891392" aria-label="Add &ldquo;Black Winter Skating&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-212 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="212"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:212,&quot;parent_product_id&quot;:212,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=212" rel="nofollow" data-product-id="212" data-product-type="simple" data-original-product-id="212" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="212"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-236 status-publish first instock product_cat-shoes product_cat-sports has-post-thumbnail shipping-taxable purchasable product-type-simple" data-product-id="236">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/blue-ski-boots/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Blue-Ski-Boots-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Blue-Ski-Boots-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /></a><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="236" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/blue-ski-boots/">Blue Ski Boots</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/blue-ski-boots/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>178.89</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=236" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="236" data-product_sku="MS46891359" aria-label="Add &ldquo;Blue Ski Boots&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-236 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="236"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:236,&quot;parent_product_id&quot;:236,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=236" rel="nofollow" data-product-id="236" data-product-type="simple" data-original-product-id="236" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="236"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-224 status-publish instock product_cat-computers product_cat-games has-post-thumbnail shipping-taxable purchasable product-type-simple" data-product-id="224">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/bluetooth-headphone/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/bluetooth-headphone-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/bluetooth-headphone-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="224" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/bluetooth-headphone/">Bluetooth Headphone</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/bluetooth-headphone/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>99.68</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=224" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="224" data-product_sku="MS46891391" aria-label="Add &ldquo;Bluetooth Headphone&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-224 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="224"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:224,&quot;parent_product_id&quot;:224,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=224" rel="nofollow" data-product-id="224" data-product-type="simple" data-original-product-id="224" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="224"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-217 status-publish instock product_cat-clothing product_cat-fashion has-post-thumbnail featured shipping-taxable purchasable product-type-simple" data-product-id="217">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/classic-hat/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/classic-hat-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/classic-hat-3-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-label-group"><label class="product-label label-featured">Hot</label></div><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="217" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/classic-hat/">Classic Hat</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 4.75 out of 5"><span style="width:95%">Rated <strong class="rating">4.75</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/classic-hat/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(4 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>53.00</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis. Volutpat ac tincidunt vitae semper quis lectus. Aliquam id diam maecenas&hellip;</p></div><div class="product-action"><a href="?add-to-cart=217" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="217" data-product_sku="MS46891376" aria-label="Add &ldquo;Classic Hat&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-217 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="217"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:217,&quot;parent_product_id&quot;:217,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=217" rel="nofollow" data-product-id="217" data-product-type="simple" data-original-product-id="217" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="217"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-213 status-publish last instock product_cat-clothing product_cat-fashion has-post-thumbnail sale shipping-taxable purchasable product-type-variable" data-product-id="213">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/coat-pool-comfort-jacket/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Coat-Pool-Comfort-Jacket-1-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Coat-Pool-Comfort-Jacket-2-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-label-group"><label class="product-label label-sale">20% off</label></div><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="213" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/coat-pool-comfort-jacket/">Coat Pool Comfort Jacket</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/coat-pool-comfort-jacket/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>160.00</bdi></span> &ndash; <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>200.00</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis. Volutpat ac tincidunt vitae semper quis lectus. Aliquam id diam maecenas&hellip;</p></div><div class="product-action"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/coat-pool-comfort-jacket/" data-quantity="1" class="btn-product product_type_variable add_to_cart_button" data-product_id="213" data-product_sku="MS46891380" aria-label="Select options for &ldquo;Coat Pool Comfort Jacket&rdquo;" aria-describedby="This product has multiple variants. The options may be chosen on the product page" rel="nofollow">Select options</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-213 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="213"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:213,&quot;parent_product_id&quot;:213,&quot;product_type&quot;:&quot;variable&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=213" rel="nofollow" data-product-id="213" data-product-type="variable" data-original-product-id="213" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="213"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-241 status-publish first instock product_cat-fashion has-post-thumbnail shipping-taxable purchasable product-type-simple" data-product-id="241">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/comfortable-backpack/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/comfortable-backpack-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/comfortable-backpack-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="241" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/comfortable-backpack/">Comfortable Backpack</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 4.00 out of 5"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/comfortable-backpack/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>45.90</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=241" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="241" data-product_sku="MS46891354" aria-label="Add &ldquo;Comfortable Backpack&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-241 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="241"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:241,&quot;parent_product_id&quot;:241,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=241" rel="nofollow" data-product-id="241" data-product-type="simple" data-original-product-id="241" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="241"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-240 status-publish instock product_cat-computers product_cat-electronics has-post-thumbnail shipping-taxable purchasable product-type-simple" data-product-id="240">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/data-transformer-tool/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/data-transformer-tool-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/data-transformer-tool-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="240" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/data-transformer-tool/">Data Transformer Tool</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/data-transformer-tool/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>64.47</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=240" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="240" data-product_sku="MS46891355" aria-label="Add &ldquo;Data Transformer Tool&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-240 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="240"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:240,&quot;parent_product_id&quot;:240,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=240" rel="nofollow" data-product-id="240" data-product-type="simple" data-original-product-id="240" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="240"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-232 status-publish instock product_cat-kitchen has-post-thumbnail sale shipping-taxable purchasable product-type-simple" data-product-id="232">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/electric-frying-pan/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/electric-frying-pan-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/electric-frying-pan-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-label-group"><label class="product-label label-sale">12% off</label></div><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="232" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/electric-frying-pan/">Electric Frying Pan</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 4.00 out of 5"><span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/electric-frying-pan/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><ins><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>137.35</bdi></span></ins> <del><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>155.65</bdi></span></del></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=232" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="232" data-product_sku="MS46891363" aria-label="Add &ldquo;Electric Frying Pan&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-232 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="232"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:232,&quot;parent_product_id&quot;:232,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=232" rel="nofollow" data-product-id="232" data-product-type="simple" data-original-product-id="232" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="232"></a></div></div>	</div>
+		</li>
+
+
+<li class="product-wrap">
+
+
+	<div class="product-loop content-left product-list product type-product post-230 status-publish last instock product_cat-kitchen has-post-thumbnail featured shipping-taxable purchasable product-type-simple" data-product-id="230">
+		<figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/electric-rice-cooker/" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/electric-rice-cooker-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /><img width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/electric-rice-cooker-2-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product" decoding="async" /></a><div class="product-label-group"><label class="product-label label-featured">Hot</label></div><div class="product-action-vertical"><button class="btn-product-icon btn-quickview" data-product="230" title="Quick View">Quick View</button></div></figure><div class="product-details"><h3 class="woocommerce-loop-product__title"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/electric-rice-cooker/">Electric Rice-Cooker</a></h3><div class="woocommerce-product-rating">
+	<div class="star-rating" role="img" aria-label="Rated 5.00 out of 5"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5</span></div><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/electric-rice-cooker/#reviews" class="woocommerce-review-link scroll-to" rel="nofollow">(1 reviews)</a></div>
+	<span class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>215.00</bdi></span></span>
+	<div class="short-desc"><p>Ultrices eros in cursus turpis massa tincidunt cursus mattis.Volutpat ac tincidunt vitae semper quis lectus.Aliquam id diam maecenas ultricies mi&hellip;</p></div><div class="product-action"><a href="?add-to-cart=230" data-quantity="1" class="btn-product product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="230" data-product_sku="MS46891365" aria-label="Add &ldquo;Electric Rice-Cooker&rdquo; to your cart" aria-describedby="" rel="nofollow">Add to cart</a>
+<div
+	class="yith-wcwl-add-to-wishlist add-to-wishlist-230 btn-product-icon wishlist-fragment on-first-load"
+	data-fragment-ref="230"
+	data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:230,&quot;parent_product_id&quot;:230,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}"
+>
+
+			<!-- ADD TO WISHLIST -->
+			<div class="yith-wcwl-add-button">
+	<a href="?add_to_wishlist=230" rel="nofollow" data-product-id="230" data-product-type="simple" data-original-product-id="230" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+</div>
+
+			<!-- COUNT TEXT -->
+
+			</div>
+<a href="#" class="compare btn-product-icon" title="Compare" data-product_id="230"></a></div></div>	</div>
+		</li>
+
+</ul></div>
+		<div class="toolbox toolbox-pagination">
+
+			<p class="woocommerce-result-count show-info">Showing <span>1&ndash;12 of 36</span> Products</p><div class="pagination"><span class="prev page-numbers disabled"><i class="w-icon-long-arrow-left"></i> Prev</span><span aria-current="page" class="page-numbers current">1</span><a class="page-numbers" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/page/2/?showtype=list&#038;only_posts=1">2</a><a class="page-numbers" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/page/3/?showtype=list&#038;only_posts=1">3</a><a class="next page-numbers" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/page/2/?showtype=list&#038;only_posts=1">Next <i class="w-icon-long-arrow-right"></i></a></div>
+		</div>
+
+		</div></div></div>

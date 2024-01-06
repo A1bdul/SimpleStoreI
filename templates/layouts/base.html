@@ -306,8 +306,8 @@
             font-style: normal;
             font-weight: 900;
             font-display: block;
-            src: url({% static 'fonts/font-awsome/fa-solid-900.eot' %});
-            src: url({% static 'fonts/font-awsome/fa-solid-900.eot?#iefix' %}) format("embedded-opentype"), url({% static 'fonts/font-awsome/fa-solid-900.woff2' %}) format("woff2"), url({% static 'fonts/font-awsome/fa-solid-900.woff' %}) format("woff"), url({% static 'fonts/font-awsome/fa-solid-900.ttf' %}) format("truetype"), url({% static 'fonts/font-awsome/fa-solid-900.svg#fontawesome' %}) format("svg")
+            src: url({% static 'fonts/font-awesome/fa-solid-900.eot' %});
+            src: url({% static 'fonts/font-awesome/fa-solid-900.eot?#iefix' %}) format("embedded-opentype"), url({% static 'fonts/font-awesome/fa-solid-900.woff2' %}) format("woff2"), url({% static 'fonts/font-awesome/fa-solid-900.woff' %}) format("woff"), url({% static 'fonts/font-awesome/fa-solid-900.ttf' %}) format("truetype"), url({% static 'fonts/font-awesome/fa-solid-900.svg#fontawesome' %}) format("svg")
         }
 
         .fas {
@@ -8852,64 +8852,98 @@
     };
 </script>
 <script id="wolmart-theme-js-extra">
-    var wolmart_vars = {
-        "ajax_url": "{% url 'store-api' %}",
-        "nonce": "1b63332844",
-        "lazyload": "1",
-        "skeleton_screen": "",
-        "container": "1280",
-        "auto_close_mobile_filter": "1",
-        "assets_url": "\/wp-content\/themes\/wolmart\/assets",
-        "texts": {
-            "loading": "Loading...",
-            "loadmore_error": "Loading failed",
-            "popup_error": "The content could not be loaded.",
-            "show_info_all": "all %d",
-            "already_voted": "You already voted!",
-            "view_checkout": "Checkout",
-            "view_cart": "View Cart",
-            "add_to_wishlist": "Add to wishlist",
-            "cart_suffix": "has been added to cart",
-            "select_category": "Select a category",
-            "no_matched": "No matches found"
-        },
-        "resource_async_js": "1",
-        "resource_split_tasks": "1",
-        "resource_idle_run": "1",
-        "resource_after_load": "1",
-        "wolmart_cache_key": "wolmart_cache_2ab9617496ba913d4f7b9a0af46e034d",
-        "lazyload_menu": "1",
-        "cart_popup_type": "mini-popup",
-        "countdown": {
-            "labels": ["Years", "Months", "Weeks", "Days", "Hours", "Minutes", "Seconds"],
-            "labels_short": ["Years", "Months", "Weeks", "Days", "Hrs", "Mins", "Secs"],
-            "label1": ["Year", "Month", "Week", "Day", "Hour", "Minute", "Second"],
-            "label1_short": ["Year", "Month", "Week", "Day", "Hour", "Min", "Sec"]
-        },
-        "menu_last_time": "1695775337",
-        "blog_ajax": "1",
-        "compare_limit": "4",
-        "swiper_url": "\/assets\/js\/plugins\/swiper.min.js",
-        "resource_disable_elementor": "1",
-        "home_url": "\/",
-        "shop_url": "\/shop\/",
-        "quickview_type": "zoom",
-        "quickview_thumbs": "horizontal",
-        "prod_open_click_mob": "1",
-        "pages": {
-            "cart": "\/cart\/",
-            "checkout": "\/checkout\/"
-        },
-        "single_product": {
-            "zoom_enabled": true,
-            "zoom_options": []
-        },
-        "cart_auto_update": "",
-        "mobile_scripts": [],
-        "mobile_styles": [],
-        "compare_popup_type": "offcanvas"
-    };
+var wolmart_vars = {
+  'ajax_url': '{% url "store-api" %}',
+  'nonce': '1b63332844',
+  'lazyload': '1',
+  'skeleton_screen': '',
+  'container': '1280',
+  'auto_close_mobile_filter': '1',
+  'assets_url': '{% static "" %}',
+  'texts': {
+    'loading': 'Loading...',
+    'loadmore_error': 'Loading failed',
+    'popup_error': 'The content could not be loaded.',
+    'show_info_all': 'all %d',
+    'already_voted': 'You already voted!',
+    'view_checkout': 'Checkout',
+    'view_cart': 'View Cart',
+    'add_to_wishlist': 'Add to wishlist',
+    'cart_suffix': 'has been added to cart',
+    'select_category': 'Select a category',
+    'no_matched': 'No matches found'
+  },
+  'resource_async_js': '1',
+  'resource_split_tasks': '1',
+  'resource_idle_run': '1',
+  'resource_after_load': '1',
+  'wolmart_cache_key': 'wolmart_cache_2ab9617496ba913d4f7b9a0af46e034d',
+  'lazyload_menu': '1',
+  'cart_popup_type': 'mini-popup',
+  'countdown': {
+    'labels': [
+      'Years',
+      'Months',
+      'Weeks',
+      'Days',
+      'Hours',
+      'Minutes',
+      'Seconds'
+    ],
+    'labels_short': [
+      'Years',
+      'Months',
+      'Weeks',
+      'Days',
+      'Hrs',
+      'Mins',
+      'Secs'
+    ],
+    'label1': [
+      'Year',
+      'Month',
+      'Week',
+      'Day',
+      'Hour',
+      'Minute',
+      'Second'
+    ],
+    'label1_short': [
+      'Year',
+      'Month',
+      'Week',
+      'Day',
+      'Hour',
+      'Min',
+      'Sec'
+    ]
+  },
+  'menu_last_time': '1695775337',
+  'blog_ajax': '1',
+  'compare_limit': '4',
+  'swiper_url': '{% static "js/plugins/swiper.min.js" %}',
+  'resource_disable_elementor': '1',
+  'shop_ajax': '1',
+  'home_url': '{% url "index" %}',
+  'shop_url': '{% url "shop" %}',
+  'quickview_type': 'zoom',
+  'quickview_thumbs': 'vertical',
+  'prod_open_click_mob': '1',
+  'pages': {
+    'cart': '{% url "cart" %}',
+    'checkout': 'https://d-themes.com/wordpress/wolmart/demo-1/checkout/'
+  },
+  'single_product': {
+    'zoom_enabled': true,
+    'zoom_options': []
+  },
+  'cart_auto_update': '',
+  'mobile_scripts': [],
+  'mobile_styles': [],
+  'compare_popup_type': 'offcanvas'
+};
 </script>
+
 <script id="wc-cart-fragments-js-extra">
     var wc_cart_fragments_params = {
         "ajax_url": " url 'store-api' %}",
@@ -8941,10 +8975,10 @@
     wp.i18n.setLocaleData({
         'text direction\u0004ltr': ['ltr']
     });
-</script>
+</script><script src="{% static 'js/wolmart_site.js' %}" id="wolmart-merged-js"></script>
+
 {% block additional_scripts %}
 {% endblock %}
-<script src="{% static 'js/wolmart_site.js' %}" id="wolmart-merged-js"></script>
 </body>
 
 </html>
