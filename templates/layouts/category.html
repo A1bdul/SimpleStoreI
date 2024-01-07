@@ -207,7 +207,7 @@
 										data-widget_type="wolmart_header_compare.default">
 										<div class="elementor-widget-container">
 											<a class="compare-open block-type " aria-label="Compare"
-												href="https://d-themes.com/wordpress/wolmart/demo-1/compare/">
+												href="{% url 'compare' %}">
 												<i class="w-icon-compare">
 												</i>
 												<span>Compare</span>
@@ -1361,7 +1361,7 @@
 				class="w-icon-category"></i><span>Categories</span></a><a
 			href="https://d-themes.com/wordpress/wolmart/demo-1/wishlist/" class="mobile-item"><i
 				class="w-icon-heart"></i><span>Wishlist</span></a><a
-			href="https://d-themes.com/wordpress/wolmart/demo-1/compare/" class="mobile-item compare-open"><i
+			href="{% url 'compare' %}" class="mobile-item compare-open"><i
 				class="w-icon-compare"></i><span>Compare</span></a><a href="#" class="mobile-item" id="scroll-top"><i
 				class="w-icon-long-arrow-up"></i><span>To Top</span></a></div>
 	<a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button">

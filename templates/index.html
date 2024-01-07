@@ -209,7 +209,7 @@
                                         data-widget_type="wolmart_header_compare.default">
                                         <div class="elementor-widget-container">
                                             <a class="compare-open block-type " aria-label="Compare"
-                                                href="https://d-themes.com/wordpress/wolmart/demo-1/compare/">
+                                                href="{% url 'compare' %}">
                                                 <i class="w-icon-compare">
                                                 </i>
                                                 <span>Compare</span>
@@ -1093,7 +1093,7 @@
                                                                                     title="Linkedin"><i
                                                                                         class="fab fa-linkedin-in"></i></a>
                                                                             </div>
-                                                                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-213 btn-product-icon wishlist-fragment on-first-load"
+                                                                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-1 btn-product-icon wishlist-fragment on-first-load"
                                                                                 data-fragment-ref="213"
                                                                                 data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:213,&quot;parent_product_id&quot;:213,&quot;product_type&quot;:&quot;variable&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
 
@@ -5891,7 +5891,7 @@
                 class="w-icon-category"></i><span>Categories</span></a><a
             href="https://d-themes.com/wordpress/wolmart/demo-1/wishlist/" class="mobile-item"><i
                 class="w-icon-heart"></i><span>Wishlist</span></a><a
-            href="https://d-themes.com/wordpress/wolmart/demo-1/compare/" class="mobile-item compare-open"><i
+            href="{% url 'compare' %}" class="mobile-item compare-open"><i
                 class="w-icon-compare"></i><span>Compare</span></a><a href="#" class="mobile-item" id="scroll-top"><i
                 class="w-icon-long-arrow-up"></i><span>To Top</span></a></div>
     <a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button">

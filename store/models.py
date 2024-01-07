@@ -50,6 +50,13 @@ class ProductQuerySet(models.QuerySet):
 
         return queryset
 
+    def shopping_filters(self, filter=None, order_by=None, sort_order="asc",  max_price=None, min_price=None):
+        queryset = self.get_queryset().filter_by_price(min_price, max_price, sort_order)
+        if order_by == "date":
+            queryset.order_by(-id)
+
+        return queryset
+
 
     def order_by_popularity(self):
         queryset = self.annotate(order_count=Count('ordered_items')).annotate(wishlist_count=Count('wishlisted_by'))
@@ -68,7 +75,6 @@ class ProductManager(models.Manager):
 
     def order_by_popularity(self):
         return self.get_queryset().order_by_popularity()
-
 
 # Create your models here.
 class User(AbstractUser):

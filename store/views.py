@@ -71,7 +71,10 @@ class AdminView(APIView):
                 "wolmart_compare_list_4", json.dumps([], separators=(",", ":"))
             )
             compare_list = json.loads(urllib.parse.unquote(cookie))
-            compare_list.remove(int(request.data.get("id")))
+            try:
+                compare_list.remove(int(request.data.get("id")))
+            except ValueError:
+                pass
             products = Product.objects.filter(id__in=compare_list)
             popup_template = render_to_string(
                 "fragments/compare-popup-template.html", {"compare_list": products}
@@ -81,17 +84,20 @@ class AdminView(APIView):
             response = Response(
                 {
                     "url": "",
-                    "count": 1,
+                    "count": len(compare_list),
                     "products": compare_list,
                     "popup_template": popup_template,
                     "minicompare": minicompare,
                 }
             )
+            if not request.data.get("mini_compare"):
+                response.data["comapre-table"] = render_to_string("layouts/compare-table.html", {})
             response.set_cookie(
                 "wolmart_compare_list_4",
                 urllib.parse.quote(json.dumps(compare_list, separators=(",", ":"))),
             )
             return response
+
 
         if action == "wolmart_add_to_compare":
             time.sleep(2)
@@ -121,6 +127,7 @@ class AdminView(APIView):
             )
             return response
 
-        print("actions", action)
-
+        print("actions \n" )
+        for x in request.data:
+            print(x)
         return Response({"result": False})

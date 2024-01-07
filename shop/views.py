@@ -7,7 +7,9 @@ from rest_framework.generics import ListAPIView
 from store.serializer import ProductSerializer
 from rest_framework.response import Response
 from store.models import Product
+from urllib.parse import unquote
 import time
+import json
 
 # Create your views here.
 
@@ -21,14 +23,15 @@ def cart_view(request):
 
 
 @api_view(["GET", "POST"])
-def shop_view(request, page_number=None):
-    if request.POST:
-        print(request.data)
-        time.sleep(3)
-        return render(request, "layouts/page.html")
-    if request.query_params("orderby"):
-        time.sleep(10000)
-    return render(request, "shop.html")
+def compare_view(request):
+    compare_cookie = request.COOKIES.get('wolmart_compare_list_4', '[]')
+    compare_list = json.loads(unquote(compare_cookie))
+    print("comapre list",compare_list)
+    # items = Product.objects.filter(id__in=compare_list)
+    items = [1]
+    return render(request, "compare.html",{
+            "items": items
+        })
 
 
 class ProductPagination(PageNumberPagination):
@@ -73,7 +76,8 @@ class ShopView(ListAPIView):
             max_price = request.query_params.get("max_price", None)
             filter_size = request.query_params.get("filter_size")
             order_by = request.query_params.get("orderby")
-            self.queryset = self.queryset.order_by_popularity()
+
+        self.queryset = self.queryset.order_by_popularity()
         response = super().get(request, *args, **kwargs)
         response.data["showtype"] = showtype
         return render(request, "shop.html", response.data)
