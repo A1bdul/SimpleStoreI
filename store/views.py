@@ -16,7 +16,14 @@ def get_cart_hash():
 
 
 class AdminView(APIView):
+    def get(self, request, *args, **kwargs) -> Response:
+        action = request.query_params.get("action")
+
+        if action == "wolmart_ajax_search":
+            query = action = request.query_params.get("query")
+
     def post(self, request, format=None) -> Response:
+        time.sleep(2)
         action = request.data.get("action", "")
         ## if not action: print("\n\naction:", request.data)
         ajax_action = request.query_params.get("wc-ajax")
@@ -35,6 +42,11 @@ class AdminView(APIView):
                     },
                 }
             )
+
+        if action == "wolmart_load_mobile_menu":
+            time.sleep(5)
+            return render(request,"fragments/mobile-menu.html")
+
         if action == "wolmart_load_menu":
             top_navigation = render_to_string("fragments/top-navigation.html")
             categories_menu = render_to_string("fragments/categories-menu.html")
@@ -66,7 +78,6 @@ class AdminView(APIView):
 
             return response
         if action == "wolmart_remove_from_compare":
-            time.sleep(2)
             cookie = request.COOKIES.get(
                 "wolmart_compare_list_4", json.dumps([], separators=(",", ":"))
             )
@@ -128,6 +139,4 @@ class AdminView(APIView):
             return response
 
         print("actions \n" )
-        for x in request.data:
-            print(x)
         return Response({"result": False})

@@ -67,8 +67,8 @@
 				<option value="9" >Show 9</option><option value="12"  selected='selected'>Show 12</option><option value="24" >Show 24</option><option value="36" >Show 36</option>			</select>
 			<input type="hidden" name="showtype" value="list" /><input type="hidden" name="only_posts" value="1" />		</div>
 				<div class="toolbox-item toolbox-show-type">
-			<a href="https://d-themes.com/wordpress/wolmart/demo-1/shop/?only_posts=1&#038;showtype=grid" class="w-icon-grid btn-showtype"></a>
-			<a href="https://d-themes.com/wordpress/wolmart/demo-1/shop/?only_posts=1&#038;showtype=list" class="w-icon-list btn-showtype active"></a>
+			<a href="{% url 'shop' %}"?only_posts=1&#038;showtype=grid" class="w-icon-grid btn-showtype"></a>
+			<a href="{% url 'shop' %}"?only_posts=1&#038;showtype=list" class="w-icon-list btn-showtype active"></a>
 		</div>
 			</div>
 </div>
@@ -387,7 +387,7 @@
 </ul></div>
 		<div class="toolbox toolbox-pagination">
 
-			<p class="woocommerce-result-count show-info">Showing <span>1&ndash;12 of 36</span> Products</p><div class="pagination"><span class="prev page-numbers disabled"><i class="w-icon-long-arrow-left"></i> Prev</span><span aria-current="page" class="page-numbers current">1</span><a class="page-numbers" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/page/2/?showtype=list&#038;only_posts=1">2</a><a class="page-numbers" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/page/3/?showtype=list&#038;only_posts=1">3</a><a class="next page-numbers" href="https://d-themes.com/wordpress/wolmart/demo-1/shop/page/2/?showtype=list&#038;only_posts=1">Next <i class="w-icon-long-arrow-right"></i></a></div>
+			<p class="woocommerce-result-count show-info">Showing <span>1&ndash;12 of 36</span> Products</p><div class="pagination"><span class="prev page-numbers disabled"><i class="w-icon-long-arrow-left"></i> Prev</span><span aria-current="page" class="page-numbers current">1</span><a class="page-numbers" href="{% url 'shop' %}"page/2/?showtype=list&#038;only_posts=1">2</a><a class="page-numbers" href="{% url 'shop' %}"page/3/?showtype=list&#038;only_posts=1">3</a><a class="next page-numbers" href="{% url 'shop' %}"page/2/?showtype=list&#038;only_posts=1">Next <i class="w-icon-long-arrow-right"></i></a></div>
 		</div>
 
 		</div></div></div>

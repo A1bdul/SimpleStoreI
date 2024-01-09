@@ -169,6 +169,36 @@
 </div>
 </div>
 </div>
+ <div class=" elementor-section elementor-top-section elementor-element elementor-element-920645c elementor-hidden-desktop elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="920645c" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-no">
+                                <div class=" elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a5d849c" data-id="a5d849c" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-d1115dc custom-search-box flex-1 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-wolmart_header_search" data-id="d1115dc" data-element_type="widget" data-widget_type="wolmart_header_search.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="search-wrapper hs-simple">
+                                                    <form action="https://d-themes.com/wordpress/wolmart/demo-1/" method="get" class="input-wrapper">
+                                                        <input type="hidden" name="post_type" value="product"/>
+                                                        <input type="search" aria-label="Search" class="form-control" name="s" placeholder="Search in..." required autocomplete="off">
+                                                        <div class="live-search-list"></div>
+                                                        <button class="btn btn-search" aria-label="Search Button" type="submit">
+                                                            <i class="w-icon-search"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-e5391f2 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-wolmart_header_mmenu_toggle" data-id="e5391f2" data-element_type="widget" data-widget_type="wolmart_header_mmenu_toggle.default">
+                                            <div class="elementor-widget-container">
+                                                <a href="#" aria-label="Mobile Menu" class="mobile-menu-toggle d-lg-none">
+                                                    <i class="w-icon-hamburger"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 <div class=" sticky-content fix-top elementor-section elementor-top-section elementor-element elementor-element-a2aeb7a elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a2aeb7a" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 <div class="elementor-container elementor-column-gap-no">
 <div class=" elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9a01e16" data-id="9a01e16" data-element_type="column">
@@ -201,7 +231,7 @@
 </div>
 <div class="elementor-element elementor-element-eff7a64 ml-auto custom-deal-menu elementor-widget elementor-widget-wolmart_widget_iconlist" data-id="eff7a64" data-element_type="widget" data-widget_type="wolmart_widget_iconlist.default">
 <div class="elementor-widget-container">
-<div class="wolmart-icon-lists inline-type align-items-center"><a href="#" class="wolmart-icon-list-item"><i class="  w-icon-map-marker"></i>Track Order</a><a href="https://d-themes.com/wordpress/wolmart/demo-1/shop/?orderby=popularity&#038;deals=1" class="wolmart-icon-list-item"><i class="  w-icon-sale"></i>Daily Deals</a></div> </div>
+<div class="wolmart-icon-lists inline-type align-items-center"><a href="#" class="wolmart-icon-list-item"><i class="  w-icon-map-marker"></i>Track Order</a><a href="{% url 'shop' %}"?orderby=popularity&#038;deals=1" class="wolmart-icon-list-item"><i class="  w-icon-sale"></i>Daily Deals</a></div> </div>
 </div>
 </div>
 </div>
@@ -530,7 +560,7 @@ var _wpUtilSettings = {"ajax":{"url":"{% url 'store-api' %}"}};
 var wc_add_to_cart_variation_params = {"wc_ajax_url":"{% url 'store-api' %}?wc-ajax=%%endpoint%%","i18n_no_matching_variations_text":"Sorry, no products matched your selection. Please choose a different combination.","i18n_make_a_selection_text":"Please select some product options before adding this product to your cart.","i18n_unavailable_text":"Sorry, this product is unavailable. Please choose a different combination."};
 </script>
 <script id="wolmart-theme-js-extra">
-var wolmart_vars = {"ajax_url":"{% url 'store-api'  %}","nonce":"b50509a6e0","lazyload":"1","skeleton_screen":"","container":"1280","auto_close_mobile_filter":"1","assets_url":"{% static '/' %}","texts":{"loading":"Loading...","loadmore_error":"Loading failed","popup_error":"The content could not be loaded.","show_info_all":"all %d","already_voted":"You already voted!","view_checkout":"Checkout","view_cart":"View Cart","add_to_wishlist":"Add to wishlist","cart_suffix":"has been added to cart","select_category":"Select a category","no_matched":"No matches found"},"resource_async_js":"1","resource_split_tasks":"1","resource_idle_run":"1","resource_after_load":"1","wolmart_cache_key":"wolmart_cache_2ab9617496ba913d4f7b9a0af46e034d","lazyload_menu":"1","cart_popup_type":"mini-popup","countdown":{"labels":["Years","Months","Weeks","Days","Hours","Minutes","Seconds"],"labels_short":["Years","Months","Weeks","Days","Hrs","Mins","Secs"],"label1":["Year","Month","Week","Day","Hour","Minute","Second"],"label1_short":["Year","Month","Week","Day","Hour","Min","Sec"]},"menu_last_time":"1695775337","blog_ajax":"1","compare_limit":"4","swiper_url":"{% static 'js/plugins/swiper.min.js' %}","resource_disable_elementor":"1","home_url":"{% url 'index' %}","shop_url":"https:\/\/d-themes.com\/wordpress\/wolmart\/demo-1\/shop\/","quickview_type":"zoom","quickview_thumbs":"horizontal","prod_open_click_mob":"1","pages":{"cart":"{% url 'cart' %}","checkout":"https:\/\/d-themes.com\/wordpress\/wolmart\/demo-1\/checkout\/"},"single_product":{"zoom_enabled":true,"zoom_options":[]},"cart_auto_update":"","mobile_scripts":[],"mobile_styles":[],"compare_popup_type":"offcanvas"};
+var wolmart_vars = {"ajax_url":"{% url 'store-api'  %}","nonce":"b50509a6e0","lazyload":"1","skeleton_screen":"","container":"1280","auto_close_mobile_filter":"1","assets_url":"{% static '/' %}","texts":{"loading":"Loading...","loadmore_error":"Loading failed","popup_error":"The content could not be loaded.","show_info_all":"all %d","already_voted":"You already voted!","view_checkout":"Checkout","view_cart":"View Cart","add_to_wishlist":"Add to wishlist","cart_suffix":"has been added to cart","select_category":"Select a category","no_matched":"No matches found"},"resource_async_js":"1","resource_split_tasks":"1","resource_idle_run":"1","resource_after_load":"1","wolmart_cache_key":"wolmart_cache_2ab9617496ba913d4f7b9a0af46e034d","lazyload_menu":"1","cart_popup_type":"mini-popup","countdown":{"labels":["Years","Months","Weeks","Days","Hours","Minutes","Seconds"],"labels_short":["Years","Months","Weeks","Days","Hrs","Mins","Secs"],"label1":["Year","Month","Week","Day","Hour","Minute","Second"],"label1_short":["Year","Month","Week","Day","Hour","Min","Sec"]},"menu_last_time":"1695775337","blog_ajax":"1","compare_limit":"4","swiper_url":"{% static 'js/plugins/swiper.min.js' %}","resource_disable_elementor":"1","home_url":"{% url 'index' %}","shop_url":"{% url 'shop' %}","quickview_type":"zoom","quickview_thumbs":"horizontal","prod_open_click_mob":"1","pages":{"cart":"{% url 'cart' %}","checkout":"https:\/\/d-themes.com\/wordpress\/wolmart\/demo-1\/checkout\/"},"single_product":{"zoom_enabled":true,"zoom_options":[]},"cart_auto_update":"","mobile_scripts":[],"mobile_styles":[],"compare_popup_type":"offcanvas"};
 </script>
 <script id="wc-cart-fragments-js-extra">
 var wc_cart_fragments_params = {"ajax_url":"{% url 'store-api' %}","wc_ajax_url":"{% url 'store-api' %}?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_8bc43a4a6ad8a68698c85b4e07d334c8","fragment_name":"wc_fragments_8bc43a4a6ad8a68698c85b4e07d334c8","request_timeout":"5000"};

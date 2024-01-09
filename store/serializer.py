@@ -6,5 +6,6 @@ class CategorySerializer(serializers.ModelSerializer):
     pass
 
 class ProductSerializer(serializers.ModelSerializer):
-    pass
-
+    class Meta:
+        model = Product
+        fields = ['name']

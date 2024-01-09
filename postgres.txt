@@ -24,8 +24,8 @@ postgres=# ALTER ROLE projectuser SET default_transaction_isolation TO 'read com
 postgres=# ALTER ROLE projectuser SET timeszone TO 'UTC';
 
 postgres=# GRANT ALL PRIVILEGES ON DATABASE myproject TO projectuser;
-postgres=# \c EXAMPLE_DB postgres
+postgres=# \c myproject postgres
 
-postgres=# GRANT ALL ON SCHEMA public TO EXAMPLE_USER;
+postgres=# GRANT ALL ON SCHEMA public TO projectuser;
 postgres=# \q
 

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "pyuploadcare.dj",
     "store",
     "shop"
 ]
@@ -148,3 +149,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "assets")]
 AUTH_USER_MODEL = "store.User"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+UPLOADCARE = {
+    'pub_key': str(os.getenv('pub_key')),
+    'secret': str(os.getenv('secret')),
+}

@@ -15747,11 +15747,11 @@ html.iziModal-isAttached {
 @charset "UTF-8";
 @font-face {
   font-family:"wolmart";
-  src:url("/../assets/fonts/wolmart/wolmart.eot?png09e");
-  src:url("/../assets/fonts/wolmart/wolmart.eot?png09e#iefix") format("embedded-opentype"),
+  src:url("/../assets/fonts/wolmart/wolmart.eot");
+  src:url("/../assets/fonts/wolmart/wolmart.eot") format("embedded-opentype"),
   url("/../assets/fonts/wolmart/wolmart.woff") format("woff"),
-  url("/../assets/fonts/wolmart/wolmart.ttf?png09e") format("truetype"),
-  url("/../assets/fonts/wolmart/wolmart.svg?png09e#wolmart") format("svg");
+  url("/../assets/fonts/wolmart/wolmart.ttf") format("truetype"),
+  url("/../assets/fonts/wolmart/wolmart.svg") format("svg");
   font-weight:normal;
   font-style:normal;
   font-display:swap
@@ -61636,11 +61636,11 @@ html.iziModal-isAttached {
 @charset "UTF-8";
 @font-face {
   font-family:"wolmart";
-  src:url("/../assets/fonts/wolmart/wolmart.eot?png09e");
-  src:url("/../assets/fonts/wolmart/wolmart.eot?png09e#iefix") format("embedded-opentype"),
-  url("/../assets/fonts/wolmart/wolmart.woff?png09e") format("woff"),
-  url("/../assets/fonts/wolmart/wolmart.ttf?png09e") format("truetype"),
-  url("/../assets/fonts/wolmart/wolmart.svg?png09e#wolmart") format("svg");
+  src:url("/../assets/fonts/wolmart/wolmart.eot");
+  src:url("/../assets/fonts/wolmart/wolmart.eot") format("embedded-opentype"),
+  url("/../assets/fonts/wolmart/wolmart.woff") format("woff"),
+  url("/../assets/fonts/wolmart/wolmart.ttf") format("truetype"),
+  url("/../assets/fonts/wolmart/wolmart.svg") format("svg");
   font-weight:normal;
   font-style:normal;
   font-display:swap

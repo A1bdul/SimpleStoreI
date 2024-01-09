@@ -253,6 +253,36 @@
                             </div>
                         </div>
                     </div>
+                     <div class=" elementor-section elementor-top-section elementor-element elementor-element-920645c elementor-hidden-desktop elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="920645c" data-element_type="section">
+                            <div class="elementor-container elementor-column-gap-no">
+                                <div class=" elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a5d849c" data-id="a5d849c" data-element_type="column">
+                                    <div class="elementor-widget-wrap elementor-element-populated">
+                                        <div class="elementor-element elementor-element-d1115dc custom-search-box flex-1 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-wolmart_header_search" data-id="d1115dc" data-element_type="widget" data-widget_type="wolmart_header_search.default">
+                                            <div class="elementor-widget-container">
+                                                <div class="search-wrapper hs-simple">
+                                                    <form action="https://d-themes.com/wordpress/wolmart/demo-1/" method="get" class="input-wrapper">
+                                                        <input type="hidden" name="post_type" value="product"/>
+                                                        <input type="search" aria-label="Search" class="form-control" name="s" placeholder="Search in..." required autocomplete="off">
+                                                        <div class="live-search-list"></div>
+                                                        <button class="btn btn-search" aria-label="Search Button" type="submit">
+                                                            <i class="w-icon-search"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="elementor-element elementor-element-e5391f2 elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-wolmart_header_mmenu_toggle" data-id="e5391f2" data-element_type="widget" data-widget_type="wolmart_header_mmenu_toggle.default">
+                                            <div class="elementor-widget-container">
+                                                <a href="#" aria-label="Mobile Menu" class="mobile-menu-toggle d-lg-none">
+                                                    <i class="w-icon-hamburger"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     <div class=" sticky-content fix-top elementor-section elementor-top-section elementor-element elementor-element-a2aeb7a elementor-hidden-tablet elementor-hidden-mobile elementor-section-boxed elementor-section-height-default elementor-section-height-default"
                         data-id="a2aeb7a" data-element_type="section"
                         data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
@@ -401,7 +431,7 @@
                                             <div class="wolmart-icon-lists inline-type align-items-center"><a href="#"
                                                     class="wolmart-icon-list-item"><i
                                                         class="  w-icon-map-marker"></i>Track Order</a><a
-                                                    href="https://d-themes.com/wordpress/wolmart/demo-1/shop/?orderby=popularity&#038;deals=1"
+                                                    href="{% url 'shop' %}"?orderby=popularity&#038;deals=1"
                                                     class="wolmart-icon-list-item"><i class="  w-icon-sale"></i>Daily
                                                     Deals</a></div>
                                         </div>
@@ -5884,7 +5914,7 @@
         </div>
     </div>
     <div class="mobile-icon-bar sticky-content fix-bottom items-5"><a
-            href="https://d-themes.com/wordpress/wolmart/demo-1" class="mobile-item active"><i
+            href="{% url 'index' %}" class="mobile-item active"><i
                 class="w-icon-home"></i><span>Home</span></a><a
             href="{% url 'shop' %}"
             class="mobile-item mobile-item-categories show-categories-menu"><i

@@ -253,6 +253,6 @@
 </li>
 </ul></div>
 <div class="toolbox toolbox-pagination">
-<p class="woocommerce-result-count show-info">Showing <span>1–12 of 36</span> Products</p><div class="pagination"><span class="prev page-numbers disabled"><i class="w-icon-long-arrow-left"></i> Prev</span><span aria-current="page" class="page-numbers current">1</span><a class="page-numbers" href="#">2</a><a class="page-numbers" href="{% url 'shop' %}"page/3/">3</a><a class="next page-numbers" href="{% url 'shop' %}"page/2/">Next <i class="w-icon-long-arrow-right"></i></a></div>
+<p class="woocommerce-result-count show-info">Showing <span>1–12 of 36</span> Products</p><div class="pagination"><span class="prev page-numbers disabled"><i class="w-icon-long-arrow-left"></i> Prev</span><span aria-current="page" class="page-numbers current">1</span><a class="page-numbers" href="{% paginate_url request 2 %}">2</a><a class="page-numbers" href="{% paginate_url request 3 %}">3</a><a class="next page-numbers" href="">Next <i class="w-icon-long-arrow-right"></i></a></div>
 </div>
 </div></div></div>

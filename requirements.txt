@@ -6,3 +6,4 @@ djoser
 Pillow
 python-dotenv
 psycopg2
+pyuploadcare

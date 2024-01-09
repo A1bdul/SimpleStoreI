@@ -85,7 +85,7 @@ class User(AbstractUser):
     first_name = models.CharField(max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     email = models.CharField(max_length=200)
-    wish_list = models.ManyToManyField("Product", related_name='wishlisted_by', blank=True, null=True)
+    wish_list = models.ManyToManyField("Product", related_name='wishlisted_by', blank=True)
     address_to = models.ForeignKey("ShippingAddress",
                                    on_delete=models.SET_NULL,
                                    null=True,
@@ -168,9 +168,9 @@ class Product(models.Model):
     category = models.ForeignKey("Category",
                                  verbose_name=_("category"),
                                  on_delete=models.CASCADE)
-    # from pyuploadcare.dj.models import ImageGroupField
+    from pyuploadcare.dj.models import ImageGroupField
 
-    image = models.ImageField(blank=True, null=True)
+    image = ImageGroupField(blank=True, null=True)
     available = models.PositiveIntegerField(default=1)
     original_price = models.FloatField()
     label = models.CharField(max_length=10, choices=LABEL_TYPES, blank=True)
