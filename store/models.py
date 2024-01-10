@@ -6,25 +6,38 @@ from django.db import models
 from django.utils.html import format_html
 from collections.abc import Iterable
 from django.utils.translation import gettext_lazy as _
-
+from colorfield.fields import ColorField
 # Create your models here
 
 from django.contrib.auth.models import AbstractUser
 from django.db.models import Q, F, ExpressionWrapper, DecimalField, Case, When, Count
 
 class ProductQuerySet(models.QuerySet):
-    def filter_by_review(self, min_rating=None, order_by_rating_count=False):
-            queryset = self.annotate(avg_rating=Avg('reviews__rating')).annotate(review_count=Count('reviews'))
 
-            if min_rating is not None:
-                queryset = queryset.filter(avg_rating__gte=min_rating)
+    def filter_by_review(self, min_rating=None, order_by_rating_count=False, order_by_highest_rating=False):
+        queryset = self.annotate(avg_rating=Avg('reviews__rating')).annotate(review_count=Count('reviews'))
 
-            if order_by_rating_count:
-                queryset = queryset.order_by('-avg_rating', 'review_count')
+        if min_rating is not None:
+            queryset = queryset.filter(avg_rating__gte=min_rating)
 
-            queryset = queryset.filter(available__gte=0)
+        if order_by_rating_count:
+            queryset = queryset.order_by('-avg_rating', 'review_count')
+        elif order_by_highest_rating:
+            queryset = queryset.order_by('-avg_rating')
+        else:
+            queryset = queryset.order_by('avg_rating')
 
-            return queryset
+        queryset = queryset.filter(available__gte=0)
+
+        return queryset
+
+    def order_by_popularity(self):
+        queryset = self.annotate(order_count=Count('ordered_items')).annotate(wishlist_count=Count('wishlisted_by'))
+
+        queryset = queryset.order_by('-order_count', '-wishlist_count')
+        queryset = queryset.filter(available__gte=0)
+
+        return queryset
 
     def filter_by_price(self, min_price=None, max_price=None, order_by_calculated_price='asc'):
         queryset = self.annotate(calculated_price=ExpressionWrapper(
@@ -50,21 +63,16 @@ class ProductQuerySet(models.QuerySet):
 
         return queryset
 
-    def shopping_filters(self, filter=None, order_by=None, sort_order="asc",  max_price=None, min_price=None):
-        queryset = self.get_queryset().filter_by_price(min_price, max_price, sort_order)
-        if order_by == "date":
-            queryset.order_by(-id)
+    def shopping_filters(self, size, category, sort_order, max_price, min_price,
+                         *args, **kwargs):
+        queryset = self.filter_by_price(min_price, max_price, sort_order)
+        if size:
+            queryset = queryset.filter(size=size)
+        if category:
+            queryset = queryset.filter(category__name__icontains=category)
 
         return queryset
 
-
-    def order_by_popularity(self):
-        queryset = self.annotate(order_count=Count('ordered_items')).annotate(wishlist_count=Count('wishlisted_by'))
-
-        queryset = queryset.order_by('-order_count', '-wishlist_count')
-        queryset = queryset.filter(available__gte=0)
-
-        return queryset
 
 class ProductManager(models.Manager):
     def get_queryset(self):
@@ -75,6 +83,10 @@ class ProductManager(models.Manager):
 
     def order_by_popularity(self):
         return self.get_queryset().order_by_popularity()
+
+    def shopping_filters(self, min_price=None, max_price=None, size=None, category=None, sort_order="asc"):
+        return self.get_queryset().shopping_filters(min_price=min_price, max_price=max_price, size=size, category=category,
+                                                    sort_order=sort_order)
 
 # Create your models here.
 class User(AbstractUser):
@@ -176,9 +188,9 @@ class Product(models.Model):
     label = models.CharField(max_length=10, choices=LABEL_TYPES, blank=True)
     description = models.TextField()
     color = ArrayField(
-        models.CharField(max_length=200, choices=LABEL_TYPES, blank=True),
-        default=list,
-        blank=True,
+        models.ImageField(upload_to='your_image_folder/'),
+        blank= True, null=True,
+        size=5, # Set the maximum number of images to allow
     )
     discount = models.FloatField(blank=True, null=True)
     discount_duration = models.DateTimeField(blank=True, null=True)
@@ -273,3 +285,14 @@ class Review(models.Model):
 
     def __str__(self):
         return "{} on {}".format(self.name, self.product)
+
+
+    def rating_percentage(self, product):
+        product_reviews = Review.objects.filter(product=product)
+        total_reviews = product_reviews.count()
+        if total_reviews > 0:
+            avg_rating = product_reviews.aggregate(Avg('rating'))['rating__avg']
+            if avg_rating:
+                rating_percentage = (avg_rating / 5) * 100  # Assuming a scale of 1 to 5
+                return round(rating_percentage, 2)
+        return 0

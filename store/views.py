@@ -7,6 +7,8 @@ from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 from .models import Product
 import urllib.parse
+from rest_framework.permissions import AllowAny
+
 
 # Create your views here.
 
@@ -16,6 +18,8 @@ def get_cart_hash():
 
 
 class AdminView(APIView):
+    permission_classes = [AllowAny]
+
     def get(self, request, *args, **kwargs) -> Response:
         action = request.query_params.get("action")
 

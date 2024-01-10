@@ -13,3 +13,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category)
+
+admin.site.site_header ="SimpleStore"
+admin.site.site_title = "SimpleStore - Admin"
