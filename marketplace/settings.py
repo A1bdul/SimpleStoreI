@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from django.db.utils import OperationalError
 from dotenv import load_dotenv
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,9 +27,9 @@ load_dotenv()
 SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -104,6 +104,7 @@ except OperationalError as e:
         }
     }
 
+DATABASES["default"] = dj_database_url.parse(str(os.getenv("DATABASE_URL")))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
