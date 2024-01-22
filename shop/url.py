@@ -12,4 +12,4 @@ urlpatterns = [
         name="shop",
     ),
 ]
-# handler404 = views.markethandler404
+handler404 = views.markethandler404

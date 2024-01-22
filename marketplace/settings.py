@@ -15,6 +15,7 @@ from pathlib import Path
 from django.db.utils import OperationalError
 from dotenv import load_dotenv
 import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,7 +30,7 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -43,13 +44,14 @@ INSTALLED_APPS = [
     "rest_framework",
     "pyuploadcare.dj",
     "store",
-    "shop"
+    "shop",
 ]
 
-SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -71,7 +73,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "shop.context_processors.marketplace_context"
+                "shop.context_processors.marketplace_context",
             ],
         },
     },
@@ -142,7 +144,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/assets/"
+STATIC_URL = "assets/"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "assets")]
 
@@ -155,11 +157,10 @@ AUTH_USER_MODEL = "store.User"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 UPLOADCARE = {
-    'pub_key': str(os.getenv('pub_key')),
-    'secret': str(os.getenv('secret')),
+    "pub_key": str(os.getenv("pub_key")),
+    "secret": str(os.getenv("secret")),
 }
 
 COOKIE_CART = "simple_cart_hash"
 
 COMPARE_LIMIT = 4
-
