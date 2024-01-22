@@ -10,3 +10,4 @@ pyuploadcare
 dj-database-url
 psycopg2
 gunicorn
+whitenoise
