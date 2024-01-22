@@ -7,3 +7,5 @@ Pillow
 python-dotenv
 psycopg2
 pyuploadcare
+dj-database-url
+psycopg2
