@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     "shop"
 ]
 
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -69,6 +71,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "shop.context_processors.marketplace_context"
             ],
         },
     },
@@ -154,3 +157,8 @@ UPLOADCARE = {
     'pub_key': str(os.getenv('pub_key')),
     'secret': str(os.getenv('secret')),
 }
+
+COOKIE_CART = "simple_cart_hash"
+
+COMPARE_LIMIT = 4
+

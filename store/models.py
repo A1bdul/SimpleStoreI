@@ -235,8 +235,8 @@ class Product(models.Model):
 
     def price(self):
         if self.discount:
-            return self.price - (self.price * (self.discount / 100))
-        return self.price
+            return self.original_price - (self.original_price * (self.discount / 100))
+        return self.original_price
 
     def __str__(self):
         return self.name

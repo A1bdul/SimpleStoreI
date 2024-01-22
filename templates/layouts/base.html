@@ -8592,6 +8592,10 @@
 	<div class="woocommerce-variation-price">{{{ data.variation.price_html }}}</div>
 	<div class="woocommerce-variation-availability">{{{ data.variation.availability_html }}}</div>
 </script> {% endcomment %}
+<script src="{% static 'js/jquery/jquery.min.js' %}" id="jquery-core-js"></script>
+
+{% block cart_scripts %}
+{% endblock %}
     <script type="text/template" id="tmpl-unavailable-variation-template">
         <p>Sorry, this product is unavailable. Please choose a different combination.</p>
 </script>
@@ -8617,7 +8621,270 @@
 
 {% block body %}
 {% endblock%}
+<footer class="footer custom-footer footer-26" id="footer">
+<div class="wolmart-block elementor elementor-26" data-block-id="26" data-elementor-id="26" data-elementor-type="wolmart-block"> <div data-elementor-type="wp-post" data-elementor-id="26" class="elementor elementor-26">
+<section class=" elementor-section elementor-top-section elementor-element elementor-element-f97d562 bg-primary pt-2 pt-md-4 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f97d562" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class=" elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-20a9e96" data-id="20a9e96" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-bc2148c elementor-position-left elementor-vertical-align-middle elementor-widget__width-auto mb-2 mb-md-4 mb-lg-0 custom-footer-infobox elementor-widget-tablet__width-auto elementor-widget-mobile__width-inherit elementor-view-default elementor-mobile-position-top elementor-widget elementor-widget-icon-box" data-id="bc2148c" data-element_type="widget" data-widget_type="icon-box.default">
+<div class="elementor-widget-container">
+<div class="elementor-icon-box-wrapper">
+<div class="elementor-icon-box-icon">
+<span class="elementor-icon elementor-animation-">
+<i aria-hidden="true" class="  w-icon-envelop3"></i> </span>
+</div>
+<div class="elementor-icon-box-content">
+<h3 class="elementor-icon-box-title">
+<span>
+Subscribe To Our Newsletter </span>
+</h3>
+<p class="elementor-icon-box-description">
+Get all the latest information on Events, Sales and Offers. </p>
+</div>
+</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-950c361 flex-1 m-w-715 ml-auto mr-auto mr-lg-0 elementor-widget__width-auto elementor-widget-tablet__width-auto elementor-widget elementor-widget-shortcode" data-id="950c361" data-element_type="widget" data-widget_type="shortcode.default">
+<div class="elementor-widget-container">
+<div class="elementor-shortcode">
+<div class="wpcf7 no-js" id="wpcf7-f28-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/wordpress/wolmart/demo-1/compare/#wpcf7-f28-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="28" />
+<input type="hidden" name="_wpcf7_version" value="5.8" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f28-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value />
+</div>
+<p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required form-control" aria-required="true" aria-invalid="false" placeholder="Your E-mail Address" value type="text" name="your-email" /></span><br/>
+<button class="wpcf7-form-control wpcf7-submit btn btn-rounded btn-dark ml-sm-2 mr-sm-0 ml-auto mr-auto mt-2 mt-sm-0 ls-normal pl-5 pr-5" type="submit" value="SUBSCRIBE">SUBSCRIBE</button>
+</p><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class=" elementor-section elementor-top-section elementor-element elementor-element-787c1cd elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="787c1cd" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="elementor-container elementor-column-gap-default">
+<div class=" elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-5c0ff8e" data-id="5c0ff8e" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-7b3bdcb elementor-widget elementor-widget-wolmart_header_site_logo" data-id="7b3bdcb" data-element_type="widget" data-widget_type="wolmart_header_site_logo.default">
+<div class="elementor-widget-container">
+<a href="{% url 'index' %}" class="logo" aria-label="Logo" title="Demo 1 - Wolmart WordPress Demo 1">
+<img width="288" height="90" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2022/06/logo.png" class="site-logo skip-data-lazy attachment-full size-full" alt="Demo 1" decoding="async" /></a>
+</div>
+</div>
+<div class="elementor-element elementor-element-8925875 mb-0 mt-2 elementor-widget elementor-widget-heading" data-id="8925875" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<p class="elementor-heading-title elementor-size-default">Got Question? Call us 24/7</p> </div>
+</div>
+<div class="elementor-element elementor-element-0afe7bf mb-0 elementor-widget elementor-widget-heading" data-id="0afe7bf" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default"><a href="tel:18005707777">1-800-570-7777</a></h2> </div>
+</div>
+<div class="elementor-element elementor-element-148d8b2 m-w-280 mb-4 elementor-widget elementor-widget-heading" data-id="148d8b2" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<p class="elementor-heading-title elementor-size-default">Register now to get updates on pronot get up ions &amp; coupons ster now toon.</p> </div>
+</div>
+<div class="elementor-element elementor-element-824a193 mb-2 elementor-widget elementor-widget-wolmart_widget_share" data-id="824a193" data-element_type="widget" data-widget_type="wolmart_widget_share.default">
+<div class="elementor-widget-container">
+<div class="social-icons">
+<a href="#" class="social-icon stacked social-facebook" target="_blank" title="facebook" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-icon stacked social-twitter" target="_blank" title="twitter" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="#" class="social-icon stacked social-instagram" target="_blank" title="instagram" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="#" class="social-icon stacked social-youtube" target="_blank" title="youtube" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a><a href="#" class="social-icon stacked social-pinterest" target="_blank" title="pinterest" rel="noopener noreferrer"><i class="fab fa-pinterest"></i></a></div>
+</div>
+</div>
+</div>
+</div>
+<div class=" elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-40571fa" data-id="40571fa" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<section class=" elementor-section elementor-inner-section elementor-element elementor-element-921cc6a elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="921cc6a" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class=" elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d871cc1" data-id="d871cc1" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-5729263 elementor-widget elementor-widget-heading" data-id="5729263" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h3 class="elementor-heading-title elementor-size-default">Company</h3> </div>
+</div>
+<div class="elementor-element elementor-element-0073991 elementor-widget elementor-widget-wolmart_widget_menu" data-id="0073991" data-element_type="widget" data-widget_type="wolmart_widget_menu.default">
+<div class="elementor-widget-container">
+<nav class=" footer-nav-1"><ul id="menu-footer-nav-1" class="menu  vertical-menu lazy-menu"><li id="menu-item-49" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-49"><a href="https://d-themes.com/wordpress/wolmart/elements/about-us/">About Us</a></li>
+<li id="menu-item-50" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-50"><a href="#">Team Member</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-51"><a href="#">Career</a></li>
+<li id="menu-item-795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-795"><a href="https://d-themes.com/wordpress/wolmart/elements/contact-us/">Contact Us</a></li>
+<li id="menu-item-53" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-53"><a href="#">Affilate</a></li>
+<li id="menu-item-54" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-54"><a href="#">Order History</a></li>
+</ul></nav> </div>
+</div>
+</div>
+</div>
+<div class=" elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-30c1b8c" data-id="30c1b8c" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-9030f74 elementor-widget elementor-widget-heading" data-id="9030f74" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h3 class="elementor-heading-title elementor-size-default">My Account</h3> </div>
+</div>
+<div class="elementor-element elementor-element-2a40971 elementor-widget elementor-widget-wolmart_widget_menu" data-id="2a40971" data-element_type="widget" data-widget_type="wolmart_widget_menu.default">
+<div class="elementor-widget-container">
+<nav class=" footer-nav-2"><ul id="menu-footer-nav-2" class="menu  vertical-menu lazy-menu"><li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="#">Track My Order</a></li>
+<li id="menu-item-796" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-796"><a href="{% url 'cart' %}">View Cart</a></li>
+<li id="menu-item-797" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-797"><a href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/">Sign In</a></li>
+<li id="menu-item-58" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-58"><a href="#">Help</a></li>
+<li id="menu-item-798" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-798"><a href="https://d-themes.com/wordpress/wolmart/demo-1/wishlist/">My Wishlist</a></li>
+<li id="menu-item-800" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-800"><a href="https://d-themes.com/wordpress/wolmart/demo-1/privacy-policy/">Privacy Policy</a></li>
+</ul></nav> </div>
+</div>
+</div>
+</div>
+<div class=" elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-a41c703" data-id="a41c703" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-8986a00 elementor-widget elementor-widget-heading" data-id="8986a00" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h3 class="elementor-heading-title elementor-size-default">Customer Service</h3> </div>
+</div>
+<div class="elementor-element elementor-element-732928b elementor-widget elementor-widget-wolmart_widget_menu" data-id="732928b" data-element_type="widget" data-widget_type="wolmart_widget_menu.default">
+<div class="elementor-widget-container">
+<nav class=" footer-nav-3"><ul id="menu-footer-nav-3" class="menu  vertical-menu lazy-menu"><li id="menu-item-61" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-61"><a href="#">Payment Methods</a></li>
+<li id="menu-item-62" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-62"><a href="#">Money-back guarantee!</a></li>
+<li id="menu-item-63" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-63"><a href="#">Products Returns</a></li>
+<li id="menu-item-64" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-64"><a href="#">Support Center</a></li>
+<li id="menu-item-65" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-65"><a href="#">Shipping</a></li>
+<li id="menu-item-66" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66"><a href="#">Term and Conditions</a></li>
+</ul></nav> </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</section>
+<div class=" elementor-section elementor-top-section elementor-element elementor-element-65dab50 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="65dab50" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="elementor-container elementor-column-gap-no">
+<div class=" elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-8698b2e" data-id="8698b2e" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<section class=" elementor-section elementor-inner-section elementor-element elementor-element-0970ebd elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0970ebd" data-element_type="section">
+<div class="elementor-container elementor-column-gap-default">
+<div class=" elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-fc7f52e" data-id="fc7f52e" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-a7dfdaa elementor-widget elementor-widget-wolmart_widget_iconlist" data-id="a7dfdaa" data-element_type="widget" data-widget_type="wolmart_widget_iconlist.default">
+<div class="elementor-widget-container">
+<div class="wolmart-icon-lists inline-type align-items-center"><h4 class="list-title">Consumer Electric:</h4><a href="{% url 'shop' %}" class="wolmart-icon-list-item">TV Television</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Air Condition</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Refrigator</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Washing Machine</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Audio Speaker</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Security Camera</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">View all</a></div> </div>
+</div>
+<div class="elementor-element elementor-element-ce16652 elementor-widget elementor-widget-wolmart_widget_iconlist" data-id="ce16652" data-element_type="widget" data-widget_type="wolmart_widget_iconlist.default">
+<div class="elementor-widget-container">
+<div class="wolmart-icon-lists inline-type align-items-center"><h4 class="list-title">Clothing & Apparel:</h4><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Men T-shirt</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Dresses</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Men's Sneaker</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Leather Backpack</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Watches</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Jeans</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Sunglasses</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Boots</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Rayban</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Accessories</a></div> </div>
+</div>
+<div class="elementor-element elementor-element-7920882 elementor-widget elementor-widget-wolmart_widget_iconlist" data-id="7920882" data-element_type="widget" data-widget_type="wolmart_widget_iconlist.default">
+<div class="elementor-widget-container">
+<div class="wolmart-icon-lists inline-type align-items-center"><h4 class="list-title">Home, Garden & Kitchen:</h4><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Sofa</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Chair</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Bed Room</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Living Room</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Cookware</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Utensil</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Blender</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Garden Equipments</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Decor</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Library</a></div> </div>
+</div>
+<div class="elementor-element elementor-element-736d478 elementor-widget elementor-widget-wolmart_widget_iconlist" data-id="736d478" data-element_type="widget" data-widget_type="wolmart_widget_iconlist.default">
+<div class="elementor-widget-container">
+<div class="wolmart-icon-lists inline-type align-items-center"><h4 class="list-title">Health & Beauty:</h4><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Skin Care</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Body Shower</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Makeup</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Hair Care</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Lipstick</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Perfume</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">View all</a></div> </div>
+</div>
+<div class="elementor-element elementor-element-6fb6b4c elementor-widget elementor-widget-wolmart_widget_iconlist" data-id="6fb6b4c" data-element_type="widget" data-widget_type="wolmart_widget_iconlist.default">
+<div class="elementor-widget-container">
+<div class="wolmart-icon-lists inline-type align-items-center"><h4 class="list-title">Jewelry & Watches:</h4><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Necklace</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Pendant</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Diamond Ring</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Silver Earing</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Leather Watcher</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Rolex</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Gucci</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Australian Opal</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Ammolite</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Sun Pyrite</a></div> </div>
+</div>
+<div class="elementor-element elementor-element-cf53a9a elementor-widget elementor-widget-wolmart_widget_iconlist" data-id="cf53a9a" data-element_type="widget" data-widget_type="wolmart_widget_iconlist.default">
+<div class="elementor-widget-container">
+<div class="wolmart-icon-lists inline-type align-items-center"><h4 class="list-title">Computer & Technologies:</h4><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Laptop</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">iMac</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Smartphone</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Tablet</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Apple</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Asus</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Drone</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Wireless Speaker</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">Game Controller</a><a href="{% url 'shop' %}" class="wolmart-icon-list-item">View all</a></div> </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+</div>
+<div class=" elementor-section elementor-top-section elementor-element elementor-element-08f9a57 elementor-section-content-middle pt-4 pb-4 text-center text-md-left elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="08f9a57" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="elementor-container elementor-column-gap-default">
+<div class=" elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-9a72b3d" data-id="9a72b3d" data-element_type="column">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-1a46c9d elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-widget elementor-widget-shortcode" data-id="1a46c9d" data-element_type="widget" data-widget_type="shortcode.default">
+<div class="elementor-widget-container">
+<div class="elementor-shortcode">Copyright © 2023 Wolmart Store. All Rights Reserved.</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-2a80d01 elementor-widget__width-auto ml-md-auto elementor-widget elementor-widget-heading" data-id="2a80d01" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<p class="elementor-heading-title elementor-size-default">We're using safe payment for</p> </div>
+</div>
+<div class="elementor-element elementor-element-b1b2804 elementor-widget__width-auto elementor-widget elementor-widget-image" data-id="b1b2804" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+<img style="padding-top : 15.72%;" width="159" height="25" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/themes/wolmart/assets/images/lazy.png" data-lazy="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/payment.png" class="w-lazyload attachment-full size-full wp-image-565" alt="payment" /> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> </footer>
+</div>
+<div class="sticky-icon-links">
+<ul>
+<li>
+<a href="#" class="demo-toggle" title="Demos">
+<i class="fas fa-home"></i>
+<span class="expanded-label">Demos</span>
+</a>
+</li>
+<li>
+<a href="https://d-themes.com/wordpress/wolmart/documentation/" rel="noopener" target="_blank" title="Documentation">
+<i class="w-icon-exclamation-circle"></i>
+<span class="expanded-label">Documentation</span>
+</a>
+</li>
+<li>
+<a href="https://d-themes.com/support/" rel="noopener" target="_blank" title="Support">
+<i class="w-icon-comments"></i>
+<span class="expanded-label">Support</span>
+</a>
+</li>
+<li>
+<a href="https://themeforest.net/downloads/" rel="noopener" target="_blank" title="Reviews">
+<i class="w-icon-reviews"></i>
+<span class="expanded-label">Reviews</span>
+</a>
+</li>
+<li>
+<a href="https://d-themes.com/buynow/wolmartwp" rel="noopener" target="_blank" title="Buy now!">
+<i class="w-icon-cart"></i>
+<span class="expanded-label">Buy Now</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="demos-list">
+<div class="demos-overlay"></div>
+<a class="demos-close" href="#"><i class="close-icon"></i></a>
+<div class="demos-content scrollable scrollable-light">
+<h3 class="demos-title">Demos</h3>
+<div class="demos"></div>
+</div>
+</div>
+<div class="mobile-icon-bar sticky-content fix-bottom items-5"><a href="https://d-themes.com/wordpress/wolmart/demo-1" class="mobile-item"><i class="w-icon-home"></i><span>Home</span></a><a href="{% url 'shop' %}" class="mobile-item mobile-item-categories show-categories-menu"><i class="w-icon-category"></i><span>Categories</span></a><a href="https://d-themes.com/wordpress/wolmart/demo-1/wishlist/" class="mobile-item"><i class="w-icon-heart"></i><span>Wishlist</span></a><a href="{% url 'compare' %}" class="mobile-item compare-open"><i class="w-icon-compare"></i><span>Compare</span></a><a href="#" class="mobile-item" id="scroll-top"><i class="w-icon-long-arrow-up"></i><span>To Top</span></a></div>
+<a id="scroll-top" class="scroll-top" href="#top" title="Top" role="button">
+<i class="w-icon-angle-up"></i>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70">
+<circle id="progress-indicator" fill="transparent" stroke="#000000" stroke-miterlimit="10" cx="35" cy="35" r="34" />
+</svg>
+</a>
+<div class="mobile-menu-wrapper">
+<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu-container" style="height: 100vh;">
 
+</div>
+<a class="mobile-menu-close" href="#"><i class="close-icon"></i></a>
+</div>
 <script data-cfasync="false" src="{% static 'js/cdn-cgi/email-decode.min.js' %}"></script>
 <script>
     WebFontConfig = {
@@ -8646,7 +8913,6 @@
     media="all" />
 
 <link rel="stylesheet" id="wolmart-merged-css" href='{% static "css/wolmart_site.css" %}' media="all" />
-<script src="{% static 'js/jquery/jquery.min.js' %}" id="jquery-core-js"></script>
 <script id="dokan-i18n-jed-js-extra">
     var dokan = {
         "ajaxurl": "{% url 'store-api' %}",
@@ -8795,7 +9061,7 @@
         "wc_ajax_url": "{% url 'store-api' %}?wc-ajax=%%endpoint%%",
         "i18n_view_cart": "View cart",
         "cart_url": "\/cart\/",
-        "is_cart": "",
+        "is_cart": "1",
         "cart_redirect_after_add": "no"
     };
 </script>
@@ -8838,7 +9104,7 @@
 <script id="wp-util-js-extra">
     var _wpUtilSettings = {
         "ajax": {
-            "url": " url 'store-api' %}"
+            "url": "{% url 'store-api' %}"
         }
     };
 </script>
@@ -8948,7 +9214,7 @@ var wolmart_vars = {
     var wc_cart_fragments_params = {
         "ajax_url": " url 'store-api' %}",
         "wc_ajax_url": "{% url 'store-api' %}?wc-ajax=%%endpoint%%",
-        "cart_hash_key": "wc_cart_hash_8bc43a4a6ad8a68698c85b4e07d334c8",
+        "cart_hash_key": "{{ cart_hash_key}}",
         "fragment_name": "wc_fragments_8bc43a4a6ad8a68698c85b4e07d334c8",
         "request_timeout": "5000"
     };

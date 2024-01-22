@@ -1,4 +1,3 @@
-import time
 import json
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -7,18 +6,15 @@ from django.shortcuts import render, get_object_or_404
 from django.template.loader import render_to_string
 from .models import Product
 import urllib.parse
-from rest_framework.permissions import AllowAny
-
-
+from shop.util import MarketList, cart_update
+from .serializer import ProductSerializer
+from shop.context_processors import marketplace_context
+from django.conf import settings
 # Create your views here.
 
 
-def get_cart_hash():
-    return ""
-
 
 class AdminView(APIView):
-    permission_classes = [AllowAny]
 
     def get(self, request, *args, **kwargs) -> Response:
         action = request.query_params.get("action")
@@ -27,29 +23,52 @@ class AdminView(APIView):
             query = action = request.query_params.get("query")
 
     def post(self, request, format=None) -> Response:
-        time.sleep(2)
         action = request.data.get("action", "")
         ## if not action: print("\n\naction:", request.data)
         ajax_action = request.query_params.get("wc-ajax")
         if ajax_action:
-            print(str(request.data) + "\n\n", ajax_action)
+            from django.core import signing
+
+            empty_cart = signing.dumps([])
+            cart_hash = request.session.get(settings.COOKIE_CART, "")
+
+            cart_hash = empty_cart if cart_hash == "" else cart_hash
+            cart = signing.loads(cart_hash)
+
+            if ajax_action == "add_to_cart":
+                try:
+                    cart = cart_update(cart, request.data, ajax_action)
+                except Exception as e:
+                    print(e)
+
+            if ajax_action == "remove_from_cart":
+                try:
+                    cart = cart_update(cart, request.data, ajax_action)
+                except Exception as e:
+                    print(e)
+
+            cart_hash = signing.dumps(cart)
+            request.session[settings.COOKIE_CART] = cart_hash
+
+
+            cart =  marketplace_context(request).get("cart")
             shopping_cart_fragment = render_to_string(
-                "fragments/widget_shopping_cart_content.html"
-            )
+                "fragments/widget_shopping_cart_content.html", marketplace_context(request))
+
             return Response(
                 {
-                    "cart_hash": get_cart_hash(),
+                    "cart_hash": cart_hash,
                     "fragments": {
                         "div.widget_shopping_cart_content": shopping_cart_fragment,
-                        ".cart-toggle .cart-price": '<span class="cart-price"….00</bdi></span></span>',
-                        ".cart-toggle .cart-count": '<span class="cart-count">0</span>',
+                        ".cart-toggle .cart-price": f'<span class="cart-price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>{cart.get("total_price")}</bdi></span></span>',
+                        ".cart-toggle .cart-count": f'<span class="cart-count">{cart.get("total_quantity")}</span>',
                     },
                 }
             )
 
         if action == "wolmart_load_mobile_menu":
-            time.sleep(5)
             return render(request,"fragments/mobile-menu.html")
+
 
         if action == "wolmart_load_menu":
             top_navigation = render_to_string("fragments/top-navigation.html")
@@ -74,8 +93,9 @@ class AdminView(APIView):
             return render(request, "fragments/popup-account-form.html")
 
         if action == "wolmart_quickview":
-            # item = get_object_or_404(Product, pk=request.data.get("product_id"))
-            return render(request, "fragments/quick-view.html", {"item": ""})
+            item = get_object_or_404(Product, pk=request.data.get("product_id"))
+            return render(request, "fragments/quick-view.html", {"item": item})
+
         if action == "wolmart_clean_compare":
             response = Response()
             response.delete_cookie("wolmart_compare_list_4")
@@ -91,6 +111,7 @@ class AdminView(APIView):
             except ValueError:
                 pass
             products = Product.objects.filter(id__in=compare_list)
+
             popup_template = render_to_string(
                 "fragments/compare-popup-template.html", {"compare_list": products}
             )
@@ -115,30 +136,34 @@ class AdminView(APIView):
 
 
         if action == "wolmart_add_to_compare":
-            time.sleep(2)
             cookie = request.COOKIES.get(
                 "wolmart_compare_list_4", json.dumps([], separators=(",", ":"))
             )
-            compare_list = json.loads(urllib.parse.unquote(cookie))
-            compare_list.append(int(request.data.get("id")))
-            products = Product.objects.filter(id__in=compare_list)
+            cookie = json.loads(urllib.parse.unquote(cookie))
+            cookie.append(int(request.data.get("id")))
+            products = Product.objects.filter(id__in=cookie)
+            compare_list = MarketList(settings.COMPARE_LIMIT)
+            for product in products:
+                compare_list.append(ProductSerializer(product).data)
+            compare_list = compare_list.to_dict()
+
             popup_template = render_to_string(
-                "fragments/compare-popup-template.html", {"compare_list": products}
+                "fragments/compare-popup-template.html", {"compare_list": compare_list}
             )
             minicompare = render_to_string("fragments/mini-compare.html")
 
             response = Response(
                 {
                     "url": "",
-                    "count": 1,
-                    "products": compare_list,
+                    "count": compare_list["count"],
+                    "products": cookie,
                     "popup_template": popup_template,
                     "minicompare": minicompare,
                 }
             )
             response.set_cookie(
                 "wolmart_compare_list_4",
-                urllib.parse.quote(json.dumps(compare_list, separators=(",", ":"))),
+                urllib.parse.quote(json.dumps(cookie, separators=(",", ":"))),
             )
             return response
 

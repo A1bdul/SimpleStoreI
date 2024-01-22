@@ -11,9 +11,9 @@ from rest_framework.permissions import AllowAny
 from urllib.parse import unquote
 from django.urls import resolve
 from django.http import HttpResponseNotFound
-import time
 import json
-
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 # Create your views here.
 
 
@@ -104,8 +104,6 @@ class ShopView(views.APIView):
         return query_set
 
     def post(self, request):
-        # Avoid using sleep in production code
-        time.sleep(2)
         showtype = request.query_params.get("showtype", "grid")
 
         if "pagination" in request.data:
@@ -155,8 +153,8 @@ class ShopView(views.APIView):
         self.paginator.page.number = page_number
         return self.paginator.get_paginated_response(data)
 
+    @method_decorator(cache_page(60))
     def get(self, request, category=None, page_number=None, *args, **kwargs):
-        time.sleep(2)
         showtype = request.query_params.get("showtype", "grid")
 
 

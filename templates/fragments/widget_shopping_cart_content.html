@@ -1,1 +1,31 @@
-<div class="widget_shopping_cart_content"><div class="cart-header"><h4 class="cart-title">Shopping Cart</h4><a class="btn btn-dark btn-link btn-icon-right btn-close" href="#">Close<i class="w-icon-long-arrow-right"></i><span class="sr-only">Cart</span></a></div><p class="woocommerce-mini-cart__empty-message empty-msg">No products in the cart.</p></div>
+<div class="widget_shopping_cart_content">
+   <div class="cart-header">
+      <h4 class="cart-title">Shopping Cart</h4>
+      <a class="btn btn-dark btn-link btn-icon-right btn-close" href="#">Close<i class="w-icon-long-arrow-right"></i><span class="sr-only">Cart</span></a>
+   </div>
+   {% if not cart.items %}
+   <p class="woocommerce-mini-cart__empty-message empty-msg">No products in the cart.</p>
+   {% else %}
+    <ul class="mini-list scrollable woocommerce-mini-cart cart_list product_list_widget ">
+    {% for item in cart.items %}
+      <li class="woocommerce-mini-cart-item mini-item mini_cart_item">
+         <div class="cart-item-meta mini-item-meta">
+            <a href="https://d-themes.com/wordpress/wolmart/demo-1/product/black-winter-skating/"><span>{{ item.name }}</span></a>
+            <dl class="variation">
+               <dt class="variation-Vendor">Vendor:</dt>
+               <dd class="variation-Vendor">
+                  <p>Vendor 6</p>
+               </dd>
+            </dl>
+            <span class="quantity">{{ item.quantity }} <span class="times">&times</span> <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>{{ item.price }}</bdi></span></span>
+         </div>
+         <a href="https://d-themes.com/wordpress/wolmart/demo-1/product/black-winter-skating/"><img width="300" height="338" src="{{ item.image.0 }}-/preview/300x338/" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" decoding="async" /></a>					<a href="{% url 'cart' %}?remove_item=1534b76d325a8f591b52d302e7181331&#038;_wpnonce=73928ad328" class="remove remove_from_cart_button" aria-label="Remove Black Winter Skating from cart" data-product_id="{{ item.id }}" data-cart_item_key="1534b76d325a8f591b52d302e7181331" data-product_sku="MS46891392"><i class="fas fa-times"></i></a>
+      </li>
+    {% endfor %}
+   </ul>
+   <p class="woocommerce-mini-cart__total total">
+      <strong>Subtotal:</strong> <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">&#36;</span>{{ cart.total_price }}</bdi></span>
+   </p>
+   <p class="woocommerce-mini-cart__buttons buttons"><a href="{% url 'cart' %}" class="button wc-forward">View cart</a><a href="#" class="button checkout wc-forward">Checkout</a></p>
+   {% endif %}
+</div>
