@@ -18036,6 +18036,7 @@ window.Wolmart ||
 						'.cart-offcanvas .btn-close',
 						(
 							function (a) {
+								a.preventDefault();
 								t(this).closest('.cart-offcanvas').removeClass('opened')
 							}
 						)

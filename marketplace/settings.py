@@ -98,7 +98,6 @@ try:
         }
     }
 except OperationalError as e:
-    print(e, "Connected to the sql database")
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",

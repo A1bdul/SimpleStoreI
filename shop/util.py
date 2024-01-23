@@ -3,7 +3,9 @@ import hashlib
 import pickle
 from datetime import datetime
 
+
 class MarketList:
+
     def __init__(self, max_size):
         self.max_size = max_size
         self._data = [None] * max_size
@@ -61,20 +63,15 @@ class MarketList:
 
 def cart_update(cart, ordereditem, action):
     id = ordereditem.get("product_id")
-    print(id)
     if action == "add_to_cart":
-        for item in cart:
-            print("yes found!!!!", item)
-            if item.get("id") == id:
-                item["quantity"] += int(ordereditem.get("quantity", 1))
-                return cart
-        cart.append({
-                    "id": ordereditem.get("product_id"), "quantity": int(ordereditem.get("quantity", 1)
-)                })
+        for d in cart:
+            if d['id'] == id:
+                d['quantity'] += 1
+                return cart  # Return the modified list
+
+        # If the id_to_find was not found, add a new dictionary
+        new_dict = {'id': id, 'quantity': 1}
+        cart.append(new_dict)
         return cart
     else:
-        for item in cart:
-            if item.get("id") == id:
-                del item
-                print("removed",cart)
-            return cart
+        return [d for d in cart if d['id'] != id]

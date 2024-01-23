@@ -9,6 +9,8 @@ import requests
 from django.template.defaultfilters import stringfilter
 from urllib.parse import urlencode, parse_qs
 from django.urls import reverse
+from django.core import signing
+
 register = template.Library()
 
 
@@ -20,9 +22,8 @@ def update_url(request, param_name=None, param_value=None, *args, **kwargs):
     {% update_url request 'filter_size' 'extra-large' %}
     """
     updated_params = request.GET.copy()
-    current_values = updated_params.get(
-        param_name, None
-    )  # Get the current value or None
+    current_values = updated_params.get(param_name,
+                                        None)  # Get the current value or None
 
     if param_name and param_value:
         if current_values:
@@ -32,16 +33,23 @@ def update_url(request, param_name=None, param_value=None, *args, **kwargs):
                 current_values.remove(param_value)
             else:
                 current_values.append(param_value)
-            updated_params[param_name] = ",".join([str(ele) for ele in current_values])
+            updated_params[param_name] = ",".join(
+                [str(ele) for ele in current_values])
         else:  # If the parameter has no value yet
             updated_params[param_name] = param_value
 
     for key in kwargs:
         updated_params[key] = kwargs[key]
     # Convert the updated query parameters back to a URL string
-    updated_url = "{}?{}".format(request.path, urlencode(updated_params, doseq=True))
+    updated_url = "{}?{}".format(request.path,
+                                 urlencode(updated_params, doseq=True))
 
     return updated_url
+
+@register.simple_tag
+def sign(value):
+    return signing.dumps(value)
+
 
 @register.simple_tag
 def paginate_url(request, page_number):
@@ -52,8 +60,10 @@ def paginate_url(request, page_number):
     updated_url = "{}?{}".format(request.path, urlencode(params, doseq=True))
     return updated_url
 
+
 def base64_encode(image_url):
-    encoded_image = base64.b64encode(requests.get(image_url).content).decode("utf-8")
+    encoded_image = base64.b64encode(
+        requests.get(image_url).content).decode("utf-8")
     return f"data:image/jpeg;base4,{encoded_image}"
 
     # try:

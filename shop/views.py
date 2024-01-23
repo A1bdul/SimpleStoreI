@@ -33,7 +33,6 @@ def markethandler404(request, exception, template_name="404.html"):
 def compare_view(request):
     compare_cookie = request.COOKIES.get('wolmart_compare_list_4', '[]')
     compare_list = json.loads(unquote(compare_cookie))
-    print("comapre list",compare_list)
     # items = Product.objects.filter(id__in=compare_list)
     items = [1]
     return render(request, "compare.html",{
@@ -119,7 +118,6 @@ class ShopView(views.APIView):
             else:
                 return HttpResponseNotFound("")
 
-            print("data", response.data)
 
     @property
     def paginator(self):
@@ -158,7 +156,6 @@ class ShopView(views.APIView):
         showtype = request.query_params.get("showtype", "grid")
 
 
-        print("\n\nquery_parms", request.data, request.query_params)
 
         page = self.paginate_queryset(self.get_queryset())
         if page:
@@ -168,5 +165,4 @@ class ShopView(views.APIView):
             return HttpResponseNotFound("Not found")
             # response = self.serializer_class(self.get_queryset(), many=True)
         response.data["showtype"] = showtype
-        print("data", response.data)
         return render(request, "shop.html", response.data)

@@ -12,7 +12,6 @@ def marketplace_context(request):
     empty_cart = signing.dumps([])
 
     cart_hash = request.session.get(settings.COOKIE_CART, empty_cart)
-    print(signing.loads(cart_hash))
     cart = OrderedItemSerializer(instance=signing.loads(cart_hash)).data
 
     return {

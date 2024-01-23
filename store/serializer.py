@@ -43,7 +43,6 @@ class OrderedItemSerializer:
     def serialize_order(self):
         items = []
         if self.instance:
-            print(self.instance)
             for ordered_item in self.instance:
                 item = ProductSerializer(Product.objects.get(id=ordered_item.get("id"))).data
                 item["quantity"] = ordered_item.get("quantity", 1)
