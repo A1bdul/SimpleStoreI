@@ -46,6 +46,7 @@ def update_url(request, param_name=None, param_value=None, *args, **kwargs):
 
     return updated_url
 
+
 @register.simple_tag
 def sign(value):
     return signing.dumps(value)

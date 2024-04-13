@@ -37,14 +37,15 @@ ALLOWED_HOSTS = ["*"]
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
-    "django.contrib.contenttypes",
+    "django.contrib.contenttypes", 
     "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+    "django.contrib.messages", 
+    "django.contrib.staticfiles", 
+    "django.contrib.humanize",
     "rest_framework",
-    "pyuploadcare.dj",
-    "store",
-    "shop",
+    "pyuploadcare.dj", 
+    "store", 
+    "shop"
 ]
 
 SESSION_ENGINE = "django.contrib.sessions.backends.signed_cookies"
@@ -59,6 +60,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 ROOT_URLCONF = "marketplace.urls"
 
@@ -81,10 +84,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "marketplace.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 
 try:
     DATABASES = {
@@ -112,19 +113,22 @@ DATABASES["default"] = dj_database_url.parse(str(os.getenv("DATABASE_URL")))
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME":
+        "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
@@ -139,7 +143,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -149,7 +152,6 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "assets")]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
 
 AUTH_USER_MODEL = "store.User"
 
@@ -163,3 +165,5 @@ UPLOADCARE = {
 COOKIE_CART = "simple_cart_hash"
 
 COMPARE_LIMIT = 4
+
+HEADER_MESSAGE = "Welcome to SimpleStore Marketplace!!"

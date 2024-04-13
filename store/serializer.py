@@ -5,18 +5,20 @@ from .models import Product, Category, Review, OrderedItem
 class CategorySerializer(serializers.ModelSerializer):
     pass
 
+
 class ProductSerializer(serializers.ModelSerializer):
     rating_percentage = serializers.SerializerMethodField()
     rating_count = serializers.SerializerMethodField()
     image = serializers.SerializerMethodField()
     # price = serializers.SerializerMethodField()
-    category = serializers.SlugRelatedField(
-            read_only = True,
-            slug_field = 'name'
-        )
+    category = serializers.SlugRelatedField(read_only=True, slug_field='name')
+
     class Meta:
         model = Product
-        fields = ['id', 'name', 'image', 'category', 'rating_percentage', 'rating_count', 'price']
+        fields = [
+            'id', 'name', 'image', 'category', 'rating_percentage',
+            'rating_count', 'price'
+        ]
 
     def get_rating_percentage(self, obj):
         reviews = Review()
@@ -44,9 +46,12 @@ class OrderedItemSerializer:
         items = []
         if self.instance:
             for ordered_item in self.instance:
-                item = ProductSerializer(Product.objects.get(id=ordered_item.get("id"))).data
-                item["quantity"] = ordered_item.get("quantity", 1)
-                item["ordered_item_total"] =  item.get("price") * int(item.get("quantity"))
+                item = ProductSerializer(
+                    Product.objects.get(id=ordered_item)).data
+                item["quantity"] = self.instance[ordered_item].get(
+                    "quantity", 1)
+                item["ordered_item_total"] = item.get("price") * int(
+                    item.get("quantity"))
                 items.append(item)
 
         return items

@@ -61,17 +61,16 @@ class MarketList:
         return sum(1 for item in self._data if item is not None)
 
 
-def cart_update(cart, ordereditem, action):
-    id = ordereditem.get("product_id")
-    if action == "add_to_cart":
-        for d in cart:
-            if d['id'] == id:
-                d['quantity'] += 1
-                return cart  # Return the modified list
+def cart_update(cart, ordered_item, action):
 
-        # If the id_to_find was not found, add a new dictionary
-        new_dict = {'id': id, 'quantity': 1}
-        cart.append(new_dict)
-        return cart
-    else:
-        return [d for d in cart if d['id'] != id]
+    if action == "add_to_cart":
+        ordered_id = ordered_item.get('product_id')
+        if ordered_id not in cart:
+            cart[ordered_id] = {'quantity': 1}
+        else:
+            cart[ordered_id]['quantity'] += 1
+    elif action == "remove_from_cart":
+        ordered_id = ordered_item.get('product_id')
+        if ordered_id in cart:
+            del cart[ordered_id]
+    return cart  # Return the modified list

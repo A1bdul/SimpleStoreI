@@ -28,11 +28,12 @@ class AdminView(APIView):
         if ajax_action:
             from django.core import signing
 
-            empty_cart = signing.dumps([])
+            empty_cart = signing.dumps({})
             cart_hash = request.session.get(settings.COOKIE_CART, "")
 
             cart_hash = empty_cart if cart_hash == "" else cart_hash
             cart = signing.loads(cart_hash)
+            print(cart, ".....")
 
             if ajax_action == "add_to_cart":
                 try:

@@ -18084,10 +18084,20 @@ window.Wolmart ||
 						'wc_fragments_refreshed',
 						(
 							function (a, e) {
-								Wolmart.quantityInput('.shop_table .qty'),
+                                wc_cart_fragments_params.cart_url && (t.ajax({
+                                      url: wc_cart_fragments_params.wc_cart_ajax.toString().replace('%%endpoint%%', 'get_updated_cart'),
+                                      timeout: wc_cart_fragments_params.request_timeout,
+                                      success: function (data) {
+                                         t("#main").html(data) && Wolmart.quantityInput('.shop_table .qty') &&  handleCartForm
+                                      },
+                                      error: function (jqXHR, textStatus, errorThrown) {
+                                         console.error("AJAX request failed: " + errorThrown);
+                                      }
+                                   })), Wolmart.quantityInput('.shop_table .qty'),
 									setTimeout((function () {
 										t('.sticky-sidebar').trigger('recalc.pin')
 									}), 400)
+                                    
 							}
 						)
 					).off('click', '.widget_shopping_cart .remove').on(
@@ -18495,7 +18505,7 @@ window.Wolmart ||
 							'.shop_table .quantity .qty',
 							(
 								function () {
-									t('.shop_table button[name="update_cart"]').trigger('click')
+									t('.shop_table button[name="update_cart"]').trigger('cliack')
 								}
 							)
 						)
@@ -19271,6 +19281,37 @@ window.Wolmart ||
 			function a(t) {
 				return this.init(t)
 			}
+            var originalFormData = t(".woocommerce-cart-form").serialize(); // Get the original form data on page load
+            function isFormChanged() {
+                var currentFormData = t(".woocommerce-cart-form").serialize();
+                let formData =  t(".woocommerce-cart-form").serializeArray();
+                if (t(`input[name="${formData[0]['name']}"]`).length) {
+                    var quantityValue = t(`input[name="${formData[0]['name']}"]`).val();
+                    var subtotalElement = t(`input[name="${formData[0]['name']}"]`).closest('tr').find('.product-subtotal .woocommerce-Price-amount bdi');
+                    // Calculate the new subtotal value based on the quantity value
+                    var priceText =  t(`input[name="${formData[0]['name']}"]`).closest('tr').find('.woocommerce-Price-amount bdi').text();
+                    var pricePerUnit = parseFloat(priceText.replace(/[^0-9.-]+/g,""))
+                    var newSubtotal = pricePerUnit * quantityValue;
+                    // Update the product subtotal value
+                    subtotalElement.html('<span class="woocommerce-Price-currencySymbol">&#8358;</span>' + newSubtotal.toLocaleString());
+                } else {
+                    console.log('Input element not found with name "cart[e165421110ba03099a1c0393373c5b43][qty]".');
+                }
+                return currentFormData !== originalFormData;
+            }
+
+            handleFormChanges = function() {
+               
+                if (isFormChanged()) {
+                    t(".woocommerce-cart-form button[name='update_cart']")
+                        .prop("disabled", false)
+                        .removeClass("disable");
+                } else {
+                    t(".woocommerce-cart-form button[name='update_cart']")
+                        .prop("disabled", true)
+                        .addClass("disabled");
+                }
+            }
 			return a.min = 1,
 				a.max = 1000000,
 				a.prototype.init = function (t) {
@@ -19293,11 +19334,12 @@ window.Wolmart ||
 						e.$plus = t.parent().find('.quantity-plus').on('click', Wolmart.preventDefault),
 						'ontouchstart' in document &&
 							e.$minus.length > 0 ? (
-							e.$minus.on('touchstart', e.startDecrease),
+							e.$minus.on('touchstart', e.startDecrease ),
 							e.$plus.on('touchstart', e.startIncrease)
 						) : (
 							e.$minus.on('mousedown', e.startDecrease),
 							e.$plus.on('mousedown', e.startIncrease)
+                                
 						),
 						Wolmart.$body.on('mouseup', e.stop).on('touchend', e.stop)
 				},
@@ -19336,6 +19378,15 @@ window.Wolmart ||
 							Wolmart.deleteTimeout(this.decreaseTimer),
 							this.decreaseTimer = 0
 						)
+                    if (isFormChanged()) {
+                        jQuery(".woocommerce-cart-form button[name='update_cart']")
+                            .prop("disabled", false)
+                            .removeClass("disabled");
+                    } else {
+                            jQuery(".woocommerce-cart-form button[name='update_cart']")
+                            .prop("disabled", true)
+                            .addClass("disabled");
+                    }
 				},
 				a.prototype.startDecrease = function (t) {
 					var a = this;
@@ -19364,8 +19415,8 @@ window.Wolmart ||
 						(
 							function () {
 								var e = t(this);
-								e.data('quantityInput') ||
-									e.data('quantityInput', new a(e))
+                                handleFormChanges(), e.data('quantityInput') ||
+									e.data('quantityInput', new a(e))  
 							}
 						)
 					)
