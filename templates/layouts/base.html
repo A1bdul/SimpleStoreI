@@ -8687,7 +8687,7 @@ Get all the latest information on Events, Sales and Offers. </p>
 </div>
 <div class="elementor-element elementor-element-0afe7bf mb-0 elementor-widget elementor-widget-heading" data-id="0afe7bf" data-element_type="widget" data-widget_type="heading.default">
 <div class="elementor-widget-container">
-<h2 class="elementor-heading-title elementor-size-default"><a href="tel:18005707777">1-800-570-7777</a></h2> </div>
+<h2 class="elementor-heading-title elementor-size-default"><a href="tel:12345678900">1-234-567-8900</a></h2> </div>
 </div>
 <div class="elementor-element elementor-element-148d8b2 m-w-280 mb-4 elementor-widget elementor-widget-heading" data-id="148d8b2" data-element_type="widget" data-widget_type="heading.default">
 <div class="elementor-widget-container">
@@ -8811,7 +8811,7 @@ Get all the latest information on Events, Sales and Offers. </p>
 <div class="elementor-widget-wrap elementor-element-populated">
 <div class="elementor-element elementor-element-1a46c9d elementor-widget__width-auto elementor-widget-mobile__width-inherit elementor-widget elementor-widget-shortcode" data-id="1a46c9d" data-element_type="widget" data-widget_type="shortcode.default">
 <div class="elementor-widget-container">
-<div class="elementor-shortcode">Copyright © 2023 Wolmart Store. All Rights Reserved.</div>
+<div class="elementor-shortcode">Copyright ©{% now "Y" %} SimpleStore. All Rights Reserved.</div>
 </div>
 </div>
 <div class="elementor-element elementor-element-2a80d01 elementor-widget__width-auto ml-md-auto elementor-widget elementor-widget-heading" data-id="2a80d01" data-element_type="widget" data-widget_type="heading.default">
@@ -8832,33 +8832,33 @@ Get all the latest information on Events, Sales and Offers. </p>
 <div class="sticky-icon-links">
 <ul>
 <li>
-<a href="#" class="demo-toggle" title="Demos">
+<a href="{% url 'index' %}" title="Home">
 <i class="fas fa-home"></i>
-<span class="expanded-label">Demos</span>
+<span class="expanded-label">Home</span>
 </a>
 </li>
-<li>
+<!-- <li>
 <a href="https://d-themes.com/wordpress/wolmart/documentation/" rel="noopener" target="_blank" title="Documentation">
 <i class="w-icon-exclamation-circle"></i>
 <span class="expanded-label">Documentation</span>
 </a>
-</li>
+</li> -->
 <li>
-<a href="https://d-themes.com/support/" rel="noopener" target="_blank" title="Support">
+<a href="#" rel="noopener" target="_blank" title="Support">
 <i class="w-icon-comments"></i>
 <span class="expanded-label">Support</span>
 </a>
 </li>
-<li>
+<!-- <li>
 <a href="https://themeforest.net/downloads/" rel="noopener" target="_blank" title="Reviews">
 <i class="w-icon-reviews"></i>
 <span class="expanded-label">Reviews</span>
 </a>
-</li>
+</li> -->
 <li>
-<a href="https://d-themes.com/buynow/wolmartwp" rel="noopener" target="_blank" title="Buy now!">
+<a href="{% url 'shop' %}" rel="noopener" target="_blank" title="Shop">
 <i class="w-icon-cart"></i>
-<span class="expanded-label">Buy Now</span>
+<span class="expanded-label">Shop</span>
 </a>
 </li>
 </ul>
@@ -9197,7 +9197,7 @@ var wolmart_vars = {
   'prod_open_click_mob': '1',
   'pages': {
     'cart': '{% url "cart" %}',
-    'checkout': 'https://d-themes.com/wordpress/wolmart/demo-1/checkout/'
+    'checkout': '#/'
   },
   'single_product': {
     'zoom_enabled': true,

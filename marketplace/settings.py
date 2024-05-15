@@ -30,21 +30,20 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "af095f70-28a6-44d3-bb78-3b14f558d338-00-1nnhgs8wj5u5b.kirk.replit.dev"
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://af095f70-28a6-44d3-bb78-3b14f558d338-00-1nnhgs8wj5u5b.kirk.replit.dev'
+]
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes", 
-    "django.contrib.sessions",
-    "django.contrib.messages", 
-    "django.contrib.staticfiles", 
-    "django.contrib.humanize",
-    "rest_framework",
-    "pyuploadcare.dj", 
-    "store", 
+    "django.contrib.admin", "django.contrib.auth",
+    "django.contrib.contenttypes", "django.contrib.sessions",
+    "django.contrib.messages", "django.contrib.staticfiles",
+    "django.contrib.humanize", "rest_framework", "pyuploadcare.dj", "store",
     "shop"
 ]
 

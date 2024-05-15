@@ -19284,19 +19284,7 @@ window.Wolmart ||
             var originalFormData = t(".woocommerce-cart-form").serialize(); // Get the original form data on page load
             function isFormChanged() {
                 var currentFormData = t(".woocommerce-cart-form").serialize();
-                let formData =  t(".woocommerce-cart-form").serializeArray();
-                if (t(`input[name="${formData[0]['name']}"]`).length) {
-                    var quantityValue = t(`input[name="${formData[0]['name']}"]`).val();
-                    var subtotalElement = t(`input[name="${formData[0]['name']}"]`).closest('tr').find('.product-subtotal .woocommerce-Price-amount bdi');
-                    // Calculate the new subtotal value based on the quantity value
-                    var priceText =  t(`input[name="${formData[0]['name']}"]`).closest('tr').find('.woocommerce-Price-amount bdi').text();
-                    var pricePerUnit = parseFloat(priceText.replace(/[^0-9.-]+/g,""))
-                    var newSubtotal = pricePerUnit * quantityValue;
-                    // Update the product subtotal value
-                    subtotalElement.html('<span class="woocommerce-Price-currencySymbol">&#8358;</span>' + newSubtotal.toLocaleString());
-                } else {
-                    console.log('Input element not found with name "cart[e165421110ba03099a1c0393373c5b43][qty]".');
-                }
+                
                 return currentFormData !== originalFormData;
             }
 
