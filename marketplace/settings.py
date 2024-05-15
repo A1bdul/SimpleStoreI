@@ -30,9 +30,7 @@ SECRET_KEY = str(os.getenv("SECRET_KEY"))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = [
-    "af095f70-28a6-44d3-bb78-3b14f558d338-00-1nnhgs8wj5u5b.kirk.replit.dev"
-]
+ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://af095f70-28a6-44d3-bb78-3b14f558d338-00-1nnhgs8wj5u5b.kirk.replit.dev'
