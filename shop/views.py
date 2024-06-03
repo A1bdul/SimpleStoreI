@@ -60,7 +60,7 @@ def markethandler404(request, exception, template_name="404.html"):
 
 
 @api_view(["GET", "POST"])
-def compare_view(request): 
+def compare_view(request):
     compare_cookie = request.COOKIES.get('wolmart_compare_list_4', '[]')
     compare_list = json.loads(unquote(compare_cookie))
     # items = Product.objects.filter(id__in=compare_list)

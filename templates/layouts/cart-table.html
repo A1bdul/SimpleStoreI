@@ -1,5 +1,12 @@
 {% load humanize %}
 {% load shop_tags %}
+{% block preload %}
+{% if cart.items %}
+{% for item in cart.items %}
+<link rel="preload" href="{{ item.image.0 }}" as="image">
+{% endfor %}
+{% endif %}
+{% endblock %}
 {% if cart.items %}
       <div class="page-content">
          <div class="container">
