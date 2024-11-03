@@ -1,20 +1,24 @@
 {% if items %}
  <main id="main" class="main">
 <div class="page-content">
-<div class="container"><div class="main-content-wrap"><div class="main-content"> <div class="wolmart-compare-table product-loop">
+<div class="container">
+    <div class="main-content-wrap"><div class="main-content"> 
+        {% for item in items %}
+        
+        <div class="wolmart-compare-table product-loop">
 <div class="compare-row compare-basic">
 <div class="compare-col compare-field">
 Product </div>
 <div class="compare-col compare-value last-col" data-title="">
-<div class="compare-basic-info"><a href="#" class="compare-action to-left" title="To Left" data-prduct_id="221"><i class="w-icon-angle-left"></i></a><a href="#" class="compare-action remove_from_compare" data-product_id="221"><i class="w-icon-times-solid"></i></a><a href="#" class="compare-action to-right" title="To Right" data-prduct_id="221"><i class="w-icon-angle-right"></i></a><figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/apple-super-notecom/"><img style="" width="300" height="338" src="https://d-themes.com/wordpress/wolmart/demo-1/wp-content/uploads/sites/4/2021/03/Apple-Super-Notecom-1-300x338.jpg" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product"></a><div class="product-action-vertical"><a href="?add-to-cart=221" data-quantity="1" class="btn-product-icon product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop" data-product_id="221" data-product_sku="MS46891372" aria-label="Add “Apple Super Notecom” to your cart" rel="nofollow"><span>Add to cart</span></a>
-<div class="yith-wcwl-add-to-wishlist add-to-wishlist-221 btn-product-icon wishlist-fragment on-first-load" data-fragment-ref="221" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:&quot;221&quot;,&quot;parent_product_id&quot;:221,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
+<div class="compare-basic-info"><a href="#" class="compare-action to-left" title="To Left" data-prduct_id="{{ item.id }}"><i class="w-icon-angle-left"></i></a><a href="#" class="compare-action remove_from_compare" data-product_id="{{ item.id }}"><i class="w-icon-times-solid"></i></a><a href="#" class="compare-action to-right" title="To Right" data-prduct_id="{{ item.id }}"><i class="w-icon-angle-right"></i></a><figure class="product-media"><a href="https://d-themes.com/wordpress/wolmart/demo-1/product/apple-super-notecom/"><img style="" width="300" height="338" src="{{ item.image.0 }}-/smart_resize/300x338/" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="product"></a><div class="product-action-vertical"><a href="?add-to-cart={{ item.id }}" data-quantity="1" class="btn-product-icon product_type_simple add_to_cart_button ajax_add_to_cart add-to-cart-loop" data-product_id="{{ item.id }}" data-product_sku="MS46891372" aria-label="Add “{{ item.name }}” to your cart" rel="nofollow"><span>Add to cart</span></a>
+<div class="yith-wcwl-add-to-wishlist add-to-wishlist-221 btn-product-icon wishlist-fragment on-first-load" data-fragment-ref="{{ item.id }}" data-fragment-options="{&quot;base_url&quot;:&quot;&quot;,&quot;in_default_wishlist&quot;:false,&quot;is_single&quot;:false,&quot;show_exists&quot;:false,&quot;product_id&quot;:&quot;221&quot;,&quot;parent_product_id&quot;:221,&quot;product_type&quot;:&quot;simple&quot;,&quot;show_view&quot;:false,&quot;browse_wishlist_text&quot;:&quot;Browse wishlist&quot;,&quot;already_in_wishslist_text&quot;:&quot;The product is already in your wishlist!&quot;,&quot;product_added_text&quot;:&quot;Product added!&quot;,&quot;heading_icon&quot;:&quot;fa-heart-o&quot;,&quot;available_multi_wishlist&quot;:false,&quot;disable_wishlist&quot;:false,&quot;show_count&quot;:false,&quot;ajax_loading&quot;:false,&quot;loop_position&quot;:&quot;after_add_to_cart&quot;,&quot;item&quot;:&quot;add_to_wishlist&quot;}">
 
 <div class="yith-wcwl-add-button">
-<a href="?add_to_wishlist=221" rel="nofollow" data-product-id="221" data-product-type="simple" data-original-product-id="221" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
+<a href="?add-to-cart={{ item.id }}" rel="nofollow" data-product-id="{{ item.id }}" data-product-type="simple" data-original-product-id="{{ item.id }}" class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
 </div>
 
 </div>
-</div></figure><a class="product-title" href="https://d-themes.com/wordpress/wolmart/demo-1/product/apple-super-notecom/">Apple Super Notecom</a></div> </div>
+</div></figure><a class="product-title" href="https://d-themes.com/wordpress/wolmart/demo-1/produMct/apple-super-notecom/">{{ item.name }}</a></div> </div>
 </div>
 <div class="compare-row compare-price">
 <div class="compare-col compare-field">
@@ -52,6 +56,7 @@ Sku </div>
 MS46891372 </div>
 </div>
 </div>
+        {% endfor %}
 </div></div></div>
 </div>
 </main>

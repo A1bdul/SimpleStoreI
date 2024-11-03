@@ -49,14 +49,19 @@
     </div>
     <div class="elementor-element elementor-element-7df12ce elementor-widget__width-auto elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-wolmart_widget_menu" data-id="7df12ce" data-element_type="widget" data-widget_type="wolmart_widget_menu.default">
     <div class="elementor-widget-container">
-    <div class="dropdown dropdown-menu mobile-links"><a href="#">Links</a><nav class="dropdown-box top-navigation"><ul id="menu-top-navigation" class="menu  horizontal-menu lazy-menu"><li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132"><a href="https://d-themes.com/wordpress/wolmart/demo-1/blog/">Blog</a></li>
-    <li id="menu-item-126" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-126"><a href="https://d-themes.com/wordpress/wolmart/elements/contact-us/">Contact Us</a></li>
+    <div class="dropdown dropdown-menu mobile-links"><a href="#">Links</a><nav class="dropdown-box top-navigation"><ul id="menu-top-navigation" class="menu  horizontal-menu lazy-menu">
+        <!-- <li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132"><a href="https://d-themes.com/wordpress/wolmart/demo-1/blog/">Blog</a></li> -->
+    <li id="menu-item-1com26" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-126"><a href="https://d-themes.com/wordpress/wolmart/elements/contact-us/">Contact Us</a></li>
+        {% if user.is_authenticated %}
     <li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/">My account</a></li>
+        {% endif %}
     </ul></nav></div> </div>
     </div>
     <div class="elementor-element elementor-element-2adc7a5 elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-wolmart_header_account" data-id="2adc7a5" data-element_type="widget" data-widget_type="wolmart_header_account.default">
+        {% if not user.is_authenticated %}
     <div class="elementor-widget-container">
     <div class="account"><a class="login inline-type" href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/"><i class="w-icon-account"></i><span>Sign In </span></a><span class="delimiter">/</span><a class="register inline-type" href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/"><span>Register</span></a></div> </div>
+        {% endif %}
     </div>
     </div>
     </div>
@@ -115,6 +120,7 @@
     <span class="divider"></span>
     </div>
     </div>
+        {% if user.is_authenticated %}
     <div class="elementor-element elementor-element-40078c4 d-none-sm-max elementor-widget elementor-widget-wolmart_header_wishlist" data-id="40078c4" data-element_type="widget" data-widget_type="wolmart_header_wishlist.default">
     <div class="elementor-widget-container">
     <a class="wishlist block-type" href="https://d-themes.com/wordpress/wolmart/demo-1/wishlist/" aria-label="Wishlist">
@@ -124,6 +130,7 @@
     </a>
     </div>
     </div>
+        {% endif %}
     <div class="elementor-element elementor-element-145f7cf mr-2 d-none-sm-max elementor-widget elementor-widget-wolmart_header_compare" data-id="145f7cf" data-element_type="widget" data-widget_type="wolmart_header_compare.default">
     <div class="elementor-widget-container">
     <a class="compare-open block-type " aria-label="Compare" href="{% url 'compare' %}">

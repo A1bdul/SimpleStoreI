@@ -27,7 +27,6 @@ def index(request):
 class CartView(views.APIView):
     cart = None
 
-    @method_decorator(cache_page(60 * 60))
     def get(self, request, *args, **kwargs):
 
         if request.query_params:
@@ -63,8 +62,8 @@ def markethandler404(request, exception, template_name="404.html"):
 def compare_view(request):
     compare_cookie = request.COOKIES.get('wolmart_compare_list_4', '[]')
     compare_list = json.loads(unquote(compare_cookie))
-    # items = Product.objects.filter(id__in=compare_list)
-    items = [1]
+    items = Product.objects.filter(id__in=compare_list)
+    # items = [1]
     return render(request, "compare.html", {"items": items})
 
 

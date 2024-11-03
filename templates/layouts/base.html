@@ -8728,9 +8728,11 @@ Get all the latest information on Events, Sales and Offers. </p>
 <div class=" elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-30c1b8c" data-id="30c1b8c" data-element_type="column">
 <div class="elementor-widget-wrap elementor-element-populated">
 <div class="elementor-element elementor-element-9030f74 elementor-widget elementor-widget-heading" data-id="9030f74" data-element_type="widget" data-widget_type="heading.default">
+    {% if user.is_authenticated %}
 <div class="elementor-widget-container">
 <h3 class="elementor-heading-title elementor-size-default">My Account</h3> </div>
 </div>
+    {% endif %}
 <div class="elementor-element elementor-element-2a40971 elementor-widget elementor-widget-wolmart_widget_menu" data-id="2a40971" data-element_type="widget" data-widget_type="wolmart_widget_menu.default">
 <div class="elementor-widget-container">
 <nav class=" footer-nav-2"><ul id="menu-footer-nav-2" class="menu  vertical-menu lazy-menu"><li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-55"><a href="#">Track My Order</a></li>

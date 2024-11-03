@@ -69,15 +69,17 @@
                                            <ul id="menu-top-navigation" class="menu  horizontal-menu lazy-menu">
                                               <li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132"><a href="https://d-themes.com/wordpress/wolmart/demo-1/blog/">Blog</a></li>
                                               <li id="menu-item-126" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-126"><a href="https://d-themes.com/wordpress/wolmart/elements/contact-us/">Contact Us</a></li>
-                                              <li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/">My account</a></li>
+          {% if user.is_authenticated %} <li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/">My account</a></li> {% endif %}
                                            </ul>
                                         </nav>
                                      </div>
                                   </div>
                                </div>
                                <div class="elementor-element elementor-element-2adc7a5 elementor-hidden-tablet elementor-hidden-phone elementor-widget elementor-widget-wolmart_header_account" data-id="2adc7a5" data-element_type="widget" data-widget_type="wolmart_header_account.default">
+          {% if  user.is_authenticated %} 
                                   <div class="elementor-widget-container">
                                      <div class="account"><a class="login inline-type" href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/"><i class="w-icon-account"></i><span>Sign In </span></a><span class="delimiter">/</span><a class="register inline-type" href="https://d-themes.com/wordpress/wolmart/demo-1/my-account/"><span>Register</span></a></div>
+          {% endif %}
                                   </div>
                                </div>
                             </div>

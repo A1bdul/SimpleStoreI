@@ -97,15 +97,17 @@
 >
 
 			<!-- ADD TO WISHLIST -->
+	{% if user.is_authenticated %}
 			<div class="yith-wcwl-add-button">
 	<a href="?add_to_wishlist={{ item.id }} " rel="nofollow" data-product-id="{{ item.id }} " data-product-type="simple" data-original-product-id="{{ item.id }} " class="add_to_wishlist single_add_to_wishlist" data-title="Add to wishlist"></a>
 </div>
+	{% endif %}
 
 			<!-- COUNT TEXT -->
 
 			</div>
 <!-- <a href="{% url 'compare' %}" class="compare btn-product-icon added" title="Added" data-product_id="{{ item.id }} "></a> -->
-                <a href="#" class="compare btn-product-icon" title="Compare" data-product_id="{{item.id}}"></a>
+	<a href="{% if item.id in compare_list %} {% url 'compare' %} {% endif %}" class="compare btn-product-icon  {% if item.id in compare_list %} added {% endif %}" title="Compare" data-product_id="{{ item.id }}"></a>
 </div>
 
 </div>

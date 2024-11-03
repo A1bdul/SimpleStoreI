@@ -9,11 +9,12 @@ def marketplace_context(request):
     # Add your custom item to the context
     compare_cookie = request.COOKIES.get('wolmart_compare_list_4', '[]')
     compare_list = json.loads(unquote(compare_cookie))
+    print(type(compare_list))
     # compare_list = ProductSerializer(Product.objects.filter(id__in=compare_list), many=True).data
     empty_cart = signing.dumps([])
 
     cart_hash = request.session.get(settings.COOKIE_CART, empty_cart)
-    
+
     cart = OrderedItemSerializer(instance=signing.loads(cart_hash)).data
 
     return {
